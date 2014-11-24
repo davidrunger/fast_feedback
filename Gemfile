@@ -14,3 +14,6 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'pry-byebug', group: [:development, :test]
 gem 'rails_12factor', group: :production
 gem 'newrelic_rpm'
+gem 'bootstrap-sass', '~> 3.3.1'
+gem 'sass-rails', '>= 3.2'
+gem 'autoprefixer-rails'
