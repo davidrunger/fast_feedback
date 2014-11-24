@@ -13,3 +13,4 @@ gem 'spring',        group: :development
 gem 'bcrypt', '~> 3.1.7'
 gem 'pry-byebug', group: [:development, :test]
 gem 'rails_12factor', group: :production
+gem 'newrelic_rpm'
