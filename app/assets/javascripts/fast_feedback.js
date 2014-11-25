@@ -4,6 +4,8 @@ window.FastFeedback = {
   Views: {},
   Routers: {},
   initialize: function () {
+    new FastFeedback.Routers.Router({ $rootEl: $('#main') });
+    Backbone.history.start();
   }
 }
 

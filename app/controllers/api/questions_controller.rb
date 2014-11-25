@@ -1,11 +1,13 @@
 class Api::QuestionsController < ApplicationController
   def index
-    render json: 'hi'
+    @questions = Question.all
+    render json: @questions
   end
 
   def create
     @question = Question.new(question_params)
     @question.save!
+    render json: @question
   end
 
   private
