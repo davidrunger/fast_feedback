@@ -1,6 +1,7 @@
 FastFeedback.Views.QuestionForm = Backbone.View.extend({
   events: {
-    'click .publish-question': 'publish'
+    'click .publish-question': 'publish',
+    'click .add-answer-choice': 'addAnswer'
   },
 
   publish: function (event) {

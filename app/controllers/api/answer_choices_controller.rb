@@ -4,7 +4,6 @@ class Api::AnswerChoicesController < ApplicationController
 
   def create
     @answer_choice = AnswerChoice.new(answer_choice_params)
-    @answer_choice.question_id = params[:question_id]
     @answer_choice.save!
     render json: @answer_choice
   end
