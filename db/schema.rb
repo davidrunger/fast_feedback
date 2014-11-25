@@ -11,9 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20141125192449) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "questions", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "survey_id"
+    t.string   "chart_type"
+    t.string   "pic_url"
+    t.text     "body",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "questions", ["survey_id"], name: "index_questions_on_survey_id", using: :btree
+  add_index "questions", ["user_id"], name: "index_questions_on_user_id", using: :btree
 
 end
