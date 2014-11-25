@@ -1,0 +1,22 @@
+// Place all the styles related to the Root controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.logo {
+  float: left;
+  height: 50px;
+  margin-right: 40px;
+}
+
+.create-buttons {
+  margin: 0 auto;
+}
+
+.auth {
+  float: right;
+}
+
+.sample-chart {
+  height: 250px;
+  margin-bottom: 15px;
+}
