@@ -4,7 +4,7 @@ FastFeedback.Routers.Router = Backbone.Router.extend({
   },
 
   routes: {
-    '/questions/new': 'new'
+    'questions/new': 'new'
   },
 
   new: function () {
