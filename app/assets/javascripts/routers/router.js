@@ -4,12 +4,20 @@ FastFeedback.Routers.Router = Backbone.Router.extend({
   },
 
   routes: {
-    'questions/new': 'new'
+    'questions/new': 'new',
+    'questions/:id': 'show'
   },
 
   new: function () {
-    var questionFormView = new FastFeedback.Views.QuestionForm({ model: null });
+    var newQuestion = new FastFeedback.Models.Question();
+    var questionFormView = new FastFeedback.Views.QuestionForm({ model: newQuestion });
     this._swapView(questionFormView);
+  },
+
+  show: function (id) {
+    var question = FastFeedback.questions.getOrFetch(id);
+    var questionShowView = new FastFeedback.Views.QuestionShow({ model: question });
+    this._swapView(questionShowView);
   },
 
   _swapView: function (view) {

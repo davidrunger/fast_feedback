@@ -4,6 +4,7 @@ window.FastFeedback = {
   Views: {},
   Routers: {},
   initialize: function () {
+    FastFeedback.questions = new FastFeedback.Collections.Questions();
     new FastFeedback.Routers.Router({ $rootEl: $('#main') });
     Backbone.history.start();
   }

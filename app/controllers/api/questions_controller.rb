@@ -10,6 +10,11 @@ class Api::QuestionsController < ApplicationController
     render json: @question
   end
 
+  def show
+    @question = Question.find(params[:id])
+    render json: @question
+  end
+
   private
   def question_params
     params.require(:question).permit(:body, :chart_type, :pic_url)
