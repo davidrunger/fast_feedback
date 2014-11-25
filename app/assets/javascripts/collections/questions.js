@@ -1,5 +1,6 @@
 FastFeedback.Collections.Questions = Backbone.Collection.extend({
   getOrFetch: function (id) {
+    debugger
     var question = FastFeedback.questions.get(id);
     if (!question) {
       question = new FastFeedback.Models.Question({ id: id });
