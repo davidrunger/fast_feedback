@@ -2,6 +2,7 @@ FastFeedback.Views.QuestionForm = Backbone.CompositeView.extend({
   addAnswer: function (event) {
     event && event.preventDefault();
     var answer = new FastFeedback.Models.Answer({ ord: ++this.model.num_answers });
+    this.collection.add(answer);
     var answerFormView = new FastFeedback.Views.AnswerForm({ model: answer });
     this.addSubview('.answers', answerFormView);
   },
@@ -12,6 +13,7 @@ FastFeedback.Views.QuestionForm = Backbone.CompositeView.extend({
   },
 
   initialize: function () {
+    this.collection = this.model.answers();
   },
 
   publish: function (event) {

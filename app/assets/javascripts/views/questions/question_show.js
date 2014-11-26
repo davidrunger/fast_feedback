@@ -4,7 +4,7 @@ FastFeedback.Views.QuestionShow = Backbone.View.extend({
   },
 
   render: function () {
-    var content = this.template({ question: this.model });
+    var content = this.template({ question: this.model, answers: this.model.answers() });
     this.$el.html(content);
     return this;
   },
