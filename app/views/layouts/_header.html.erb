@@ -1,15 +1,17 @@
-<nav class="navbar navbar-default nav-pills" role="navigation">
-  <div class="container-fluid">
-    <div class="collapse navbar-collapse" id="my-nav-content">
-      <a href="/"><%= image_tag("logo.png", class: 'logo') %></a>
-      <div class="create-buttons">
-        <button class="btn btn-default">Create a Question</button>
-        <button class="btn btn-default">Create a Survey</button>
-      </div>
-      <div class="auth">
+<header class="navbar navbar-default nav-pills" role="navigation" id="header">
+  <div class="row">
+    <div class="logo col-sm-4">
+      <a href="/"><%= image_tag("logo-white.png", class: 'logo') %></a>
+    </div>
+    <div class="create-buttons col-sm-4">
+      <button class="btn btn-default">Create a Question</button>
+      <button class="btn btn-default">Create a Survey</button>
+    </div>
+    <div class="auth col-sm-4">
+      <div class="button-container">
         <button class="btn btn-primary">Login</button>
         <button class="btn btn-primary">Sign Up</button>
       </div>
     </div>
   </div>
-</nav>
+</header>
