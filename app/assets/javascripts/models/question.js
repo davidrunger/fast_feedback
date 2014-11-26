@@ -10,5 +10,14 @@ FastFeedback.Models.Question = Backbone.Model.extend({
     this.num_answers = 0;
   },
 
+  parse: function (response) {
+    if (response.answers) {
+      this.answers().set(response.answers, { parse: true });
+      delete response.answers;
+    }
+    
+    return response;
+  },
+
   urlRoot: '/api/questions'
 });
