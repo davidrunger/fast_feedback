@@ -5,7 +5,5 @@ FastFeedback.Views.AnswerForm = Backbone.View.extend({
     return this;
   },
 
-  tagName: 'form',
-
   template: JST['answers/answer_form']
 });

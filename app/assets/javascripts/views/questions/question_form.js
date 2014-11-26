@@ -1,6 +1,7 @@
 FastFeedback.Views.QuestionForm = Backbone.CompositeView.extend({
   addAnswer: function (event) {
     event && event.preventDefault();
+    debugger
     var answer = new FastFeedback.Models.Answer({ ord: ++this.model.num_answers });
     var answerFormView = new FastFeedback.Views.AnswerForm({ model: answer });
     this.addSubview('.answers', answerFormView);
@@ -13,9 +14,6 @@ FastFeedback.Views.QuestionForm = Backbone.CompositeView.extend({
   },
 
   initialize: function () {
-    while (this.num_answers < 2) {
-      this.addAnswer();
-    }
   },
 
   publish: function (event) {
@@ -30,6 +28,9 @@ FastFeedback.Views.QuestionForm = Backbone.CompositeView.extend({
   },
 
   render: function () {
+    while (this.model.num_answers < 2) {
+      this.addAnswer();
+    }
     var content = this.template({ question: this.model });
     this.$el.html(content);
     return this;
