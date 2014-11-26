@@ -17,3 +17,8 @@ gem 'bootstrap-sass', '~> 3.3.1'
 gem 'sass-rails', '>= 3.2'
 gem 'autoprefixer-rails'
 gem 'backbone-on-rails'
+
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end

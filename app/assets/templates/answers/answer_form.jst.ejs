@@ -1,5 +1,11 @@
 <label>
   Answer <%= answer.escape('ord') %>:
   <input type="text"
-         name="question[answer_attributes][<%= answer.escape('ord') %>][text]">
+         name="question[answers_attributes][<%= answer.escape('ord') %>][text]">
+  <input type="hidden"
+         name="question[answers_attributes][<%= answer.escape('ord') %>][ord]"
+         value="<%= answer.escape('ord') %>">
+  <input type="hidden"
+         name="question[answers_attributes][<%= answer.escape('ord') %>][sms_code]"
+         value="<%= answer.escape('sms_code') %>">
 </label>
