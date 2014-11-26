@@ -1,0 +1,1 @@
+json.extract!(answer, :id, :text, :sms_code, :ord);
