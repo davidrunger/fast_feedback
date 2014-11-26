@@ -66,7 +66,7 @@
 }
 
 .body-auth-buttons {
-  width: 170px;
+  width: 180px;
   margin: 0 auto;
 }
 
@@ -78,7 +78,7 @@
 
 footer {
   float: right;
-  padding: 20px;
+  padding: 4px 10px;
 }
 
 .jumbotron h1 {
@@ -87,11 +87,19 @@ footer {
 
 #primary-create-button {
   display: table;
-  margin: 0 auto;
+  margin: 25px auto;
 }
 
 .headline-img {
   max-height: 350px;
   width: auto;
   margin: 0 auto;
+}
+
+.sign-up {
+  margin-right: 4px;
+}
+
+.log-in {
+  margin-left: 4px;
 }
