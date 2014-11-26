@@ -1,2 +1,21 @@
-<div class="question"><strong>Question: </strong><%= question.escape('title') %></div>
+<div class="question">
+  <strong>Question: </strong><%= question.escape('title') %>
+</div>
+
 <div class="answers"></div>
+
+<div class="results">
+  <hr>
+  <div class="table-responsive">
+  <table class="response-table table">
+    <thead>
+      <tr>
+        <th class="text-center">Answer</th>
+        <th class="text-center">Votes</th>
+      </tr>
+    </thead>
+    <tbody class="responses">
+    </tbody>
+  </table>
+  </div>
+</div>
