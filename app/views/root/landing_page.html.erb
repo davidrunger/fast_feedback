@@ -1,6 +1,8 @@
 <div class="jumbotron">
   <div class="container">
-    
+    <div class="widewrapper main">
+      <%= image_tag("hands-headline.jpg", class: 'img-responsive headline-img') %>
+    </div>
     <h1>FastFeedback</h1>
     <div class="row">
       <div class="col-sm-6">
@@ -8,14 +10,8 @@
         <p>It's totally simple, and you'll start receiving live responses right away.</p>
         <p><a class="btn btn-primary btn-lg" href="#/questions/new" role="button" id="primary-create-button">Create a Question</a></p>
       </div>
-      <div class="col-sm-6">
-        <%= image_tag("chartjs-sample.png", class: 'sample-chart') %>
-      </div>
-    </div>
-
-    <div class="row">
       <div id="registration" class="col-sm-6">
-        <p><strong>Registered Users</strong> can save questions and surveys, view response data at a later time, and organize multiple questions into surveys.</p>
+        <p>Registered Users can save questions and surveys, view response data at a later time, and organize multiple questions into surveys.</p>
         <div class="body-auth-buttons">
           <button class="btn btn-primary">Sign Up</button>
           or
@@ -23,6 +19,6 @@
         </div>
       </div>
     </div>
-
+    </div>
   </div>
 </div>
