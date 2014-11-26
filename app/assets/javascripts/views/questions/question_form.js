@@ -17,7 +17,6 @@ FastFeedback.Views.QuestionForm = Backbone.CompositeView.extend({
   publish: function (event) {
     event.preventDefault();
     var questionAttrs = this.$el.serializeJSON();
-    debugger
     this.model.save(questionAttrs, {
       success: function () {
         Backbone.history.navigate('#/questions/' + this.model.id) 
