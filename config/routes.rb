@@ -4,4 +4,5 @@ Rails.application.routes.draw do
     resources :questions
     resources :answers
   end
+  get '/questions/:id/vote', to: 'questions#vote'
 end
