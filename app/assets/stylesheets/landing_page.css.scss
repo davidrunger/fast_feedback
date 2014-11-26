@@ -3,9 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .logo {
-  height: 40px;
-  padding-top: 3px;
-  padding-left: 13px;
+  height: 35px;
+  margin-top: 4px;
+  padding-left: 5px;
 }
 
 .create-buttons {
@@ -13,19 +13,16 @@
 }
 
 .auth {
-  /*padding-right: 13px;*/
+  padding-right: 9px;
 }
 
-.auth button {
-  /*float: right;*/
+#header .auth button {
+  margin-top: 9px;
 }
 
 .sample-chart {
   height: 250px;
   margin-bottom: 15px;
-}
-
-.create-buttons {
 }
 
 #header {
@@ -39,6 +36,7 @@
 
 #header button {
   margin-top: 5px;
+  vertical-align: baseline;
 }
 
 .row {
@@ -46,6 +44,48 @@
   margin-right: 0px;
 }
 
-.button-container {
+.auth-buttons {
   float: right;
+  text-shadow: none;
+}
+
+.auth-buttons button {
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
+
+.create-buttons button {
+  margin: 0 4px;
+}
+
+.create-buttons {
+  width: 250px;
+}
+
+#registration {
+  margin-top: 48px;
+}
+
+.body-auth-buttons {
+  width: 170px;
+  margin: 0 auto;
+}
+
+.sample-chart {
+  width: 100%;
+  height: auto;
+  margin-top: 40px;
+}
+
+footer {
+  float: right;
+  padding: 20px;
+}
+
+.jumbotron h1 {
+  color: #313038;
+}
+
+#primary-create-button {
+  display: table;
+  margin: 0 auto;
 }
