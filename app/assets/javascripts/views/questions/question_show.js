@@ -5,7 +5,6 @@ FastFeedback.Views.QuestionShow = Backbone.CompositeView.extend({
 
   render: function (question, response, options) {
     var content = this.template({ question: this.model, answers: this.model.answers() });
-    debugger
     this.model.answers().each(function (answer) {
       var answerShowView = new FastFeedback.Views.AnswerShow({ model: answer });
       this.addSubview('.answers', answerShowView.render());
