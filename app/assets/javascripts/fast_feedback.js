@@ -11,5 +11,12 @@ window.FastFeedback = {
 }
 
 $(document).ready(function () {
-  FastFeedback.initialize()
+  FastFeedback.initialize();
+  $('#slideshow').cycle({
+    fx: 'fade',
+    pager: '#smallnav', 
+    pause:   10, 
+    speed: 2000,
+    timeout:  10000 
+  }); 
 });
