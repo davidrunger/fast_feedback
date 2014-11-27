@@ -1,4 +1,4 @@
-<h1><%= @question.title %></h1>
+<h1><strong>Question:</strong> <%= @question.title %></h1>
 <% @answers.each do |answer| %>
-  <%= answer.text %>
+  <%= button_to answer.text, responses_url, method: :post %>
 <% end %>
