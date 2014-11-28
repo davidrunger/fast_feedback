@@ -15,4 +15,9 @@
 class Answer < ActiveRecord::Base
   validates :question, :text, :sms_code, :ord, presence: true
   belongs_to :question
+  has_many :responses
+
+  def response_count
+    responses.count
+  end
 end
