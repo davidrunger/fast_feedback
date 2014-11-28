@@ -18,6 +18,16 @@ FastFeedback.Views.QuestionShow = Backbone.CompositeView.extend({
   },
 
   renderChart: function () {
+    var categories = this.model.answers().map(function (answer) {
+      return answer.get('text');
+    });
+    var data = this.model.answers().map(function (answer) {
+      return answer.get('responseCount');
+    });
+    var series = {
+      name: 'Responses',
+      data: data
+    };
     $('#results-chart').highcharts({
         chart: {
             type: 'bar'
@@ -26,20 +36,14 @@ FastFeedback.Views.QuestionShow = Backbone.CompositeView.extend({
             text: 'Fruit Consumption'
         },
         xAxis: {
-            categories: ['Apples', 'Bananas', 'Oranges']
+            categories: categories
         },
         yAxis: {
             title: {
                 text: 'Fruit eaten'
             }
         },
-        series: [{
-            name: 'Jane',
-            data: [1, 0, 4]
-        }, {
-            name: 'John',
-            data: [5, 7, 3]
-        }]
+        series: [series]
     });
   },
 
