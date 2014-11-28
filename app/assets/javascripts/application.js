@@ -15,6 +15,7 @@
 //= require jquery_ujs
 //= require jquery.serializejson.min
 //= require jquery.cycle.lite
+//= require highcharts
 //= require underscore
 //= require backbone
 //= require fast_feedback
