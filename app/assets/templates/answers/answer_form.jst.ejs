@@ -1,6 +1,6 @@
 <label>
   Answer <%= answer.escape('ord') %>:
-  <input type="text"
+  <input type="text" maxlength="40"
          name="question[answers_attributes][<%= answer.escape('ord') %>][text]">
   <input type="hidden"
          name="question[answers_attributes][<%= answer.escape('ord') %>][ord]"

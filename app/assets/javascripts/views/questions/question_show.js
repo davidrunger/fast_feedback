@@ -12,45 +12,48 @@ FastFeedback.Views.QuestionShow = Backbone.CompositeView.extend({
 
   renderChart: function () {
     var categories = this.model.answers().map(function (answer) {
-      return answer.get('text');
+      return "<span class='answer-text'>" + answer.get("text") + "<br/>"
+        + "<span class='sms-code'>(" + answer.get("sms_code") + ")</span></span>";
     });
     var data = this.model.answers().map(function (answer) {
       return answer.get('responseCount');
     });
-    var series = {
+    var responseCounts = {
       name: 'Responses',
       data: data
     };
     $('#results-chart').highcharts({
         chart: {
-            type: 'bar'
+          marginLeft: 300,
+          type: 'bar'
         },
         legend: {
           enabled: false
         },
         title: {
-            text: ''
+          text: ''
         },
         xAxis: {
-            categories: categories,
-            labels: {
-              style: {
-                'font-size': '20px'
-              }
-            }
+          categories: categories,
+          labels: {
+            style: {
+              'font-size': '26px'
+            },
+            useHTML: true
+          }
         },
         yAxis: {
-            labels: {
-              style: {
-                'font-size': '20px'
-              }
-            },
-            minTickInterval: 1,
-            title: {
-                text: 'Fruit eaten'
+          labels: {
+            style: {
+              'font-size': '20px'
             }
+          },
+          minTickInterval: 1,
+          title: {
+            text: ''
+          }
         },
-        series: [series]
+        series: [responseCounts]
     });
   },
 

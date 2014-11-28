@@ -2,7 +2,9 @@
   <strong>Question: </strong><%= question.escape('title') %>
 </div>
 
-<p>Vote at <a href="http://localhost:3000/questions/<%= question.id %>/vote">localhost:3000/questions/<%= question.id %>/vote</a></p>
+<div id="instructions">
+  <p>Vote at <a href="http://localhost:3000/questions/<%= question.id %>/vote">localhost:3000/questions/<%= question.id %>/vote</a></p>
+</div>
 
 <div class="answers"></div>
 
