@@ -8,9 +8,7 @@ FastFeedback.Views.QuestionShow = Backbone.CompositeView.extend({
     this.$el.html(content);
     this.model.answers().each(function (answer) {
       var answerShowView = new FastFeedback.Views.AnswerShow({ model: answer });
-      var answerResponses = new FastFeedback.Views.AnswerResponses({ model: answer });
       this.addSubview('.answers', answerShowView.render());
-      this.addSubview('.responses', answerResponses.render());
     }.bind(this))
     this.attachSubviews();
     this.renderChart();
@@ -32,8 +30,11 @@ FastFeedback.Views.QuestionShow = Backbone.CompositeView.extend({
         chart: {
             type: 'bar'
         },
+        legend: {
+          enabled: false
+        },
         title: {
-            text: 'Fruit Consumption'
+            text: ''
         },
         xAxis: {
             categories: categories
