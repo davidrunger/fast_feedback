@@ -2,12 +2,16 @@
   font-size: 32px;
   margin: 0 auto;
   width: 780px;
-  padding: 20px;
+  padding: 20px 20px 8px;
+}
+
+hr {
+  margin: 8px 20px;
 }
 
 .answer {
   font-size: 22px;
-  padding: 10px 40px;
+  padding: 4px 40px;
 }
 
 .answer-prefix {
@@ -21,4 +25,9 @@
 
 .table td {
    text-align: center;
+}
+
+#results-chart {
+  width: 700px;
+  height: 400px;
 }
