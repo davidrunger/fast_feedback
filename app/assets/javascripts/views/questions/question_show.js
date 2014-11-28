@@ -37,9 +37,20 @@ FastFeedback.Views.QuestionShow = Backbone.CompositeView.extend({
             text: ''
         },
         xAxis: {
-            categories: categories
+            categories: categories,
+            labels: {
+              style: {
+                'font-size': '20px'
+              }
+            }
         },
         yAxis: {
+            labels: {
+              style: {
+                'font-size': '20px'
+              }
+            },
+            minTickInterval: 1,
             title: {
                 text: 'Fruit eaten'
             }
