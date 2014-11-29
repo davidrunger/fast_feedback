@@ -2,6 +2,10 @@ FastFeedback.Views.QuestionShow = Backbone.CompositeView.extend({
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
     var pusher = new Pusher('64152daaea1aca17f899');
+    var channel = pusher.subscribe('response-updates');
+    channel.bind('response-event', function(data) {
+      this.model.fetch();
+    }.bind(this));
   },
 
   render: function (question, response, options) {

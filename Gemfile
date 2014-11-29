@@ -17,6 +17,7 @@ gem 'sass-rails', '>= 3.2'
 gem 'autoprefixer-rails'
 gem 'backbone-on-rails'
 gem "figaro"
+gem 'pusher', '~> 0.14.2'
 
 group :development do
   gem 'better_errors'
