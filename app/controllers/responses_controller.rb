@@ -19,8 +19,6 @@ require 'pusher'
 
   private
   def response_params
-    puts 'PARAMS:'
-    puts params
     params.require(:response).permit(:answer_id)
   end
 end

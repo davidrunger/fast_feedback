@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $('button').on('click', function (event) {
+  $('.response-button').on('click', function (event) {
     $.ajax({
       type: "POST",
       url: "/responses",

@@ -9,9 +9,16 @@ FastFeedback.Views.QuestionShow = Backbone.CompositeView.extend({
   },
 
   render: function (question, response, options) {
-    var content = this.template({ question: this.model, answers: this.model.answers() });
-    this.$el.html(content);
-    this.renderChart();
+    // if chart is already on page, just update the chart
+    if (Highcharts.charts.length > 0) {
+      this.updateChart();
+    }
+    // chart is not yet on the page and we need to render the full template
+    else {
+      var content = this.template({ question: this.model, answers: this.model.answers() });
+      this.$el.html(content);
+      this.renderChart();
+    }
     return this;
   },
 
@@ -20,15 +27,14 @@ FastFeedback.Views.QuestionShow = Backbone.CompositeView.extend({
       return "<span class='answer-text'>" + answer.get("text") + "<br/>"
         + "<span class='sms-code'>(" + answer.get("sms_code") + ")</span></span>";
     });
-    var data = this.model.answers().map(function (answer) {
-      return answer.get('responseCount');
-    });
+    var data = this.responseData();
     var responseCounts = {
       name: 'Responses',
       data: data
     };
     $('#results-chart').highcharts({
         chart: {
+          animation: false,
           marginLeft: 300,
           type: 'bar'
         },
@@ -60,6 +66,16 @@ FastFeedback.Views.QuestionShow = Backbone.CompositeView.extend({
         },
         series: [responseCounts]
     });
+  },
+
+  responseData: function () {
+    return this.model.answers().map(function (answer) {
+      return answer.get('responseCount');
+    });
+  },
+
+  updateChart: function () {
+    Highcharts.charts[0].series[0].setData(this.responseData(), true, true)
   },
 
   template: JST['questions/question_show']
