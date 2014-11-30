@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   namespace :api do
     resources :questions
     resources :answers
+    resources :responses, only: [:create]
   end
   resource :responses, only: [:create]
   get '/questions/:id/vote', to: 'questions#vote'
