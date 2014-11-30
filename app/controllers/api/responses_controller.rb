@@ -1,6 +1,8 @@
 class Api::ResponsesController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: [:create]
+
   def create
-    render json: nil, status: 200
+    render json: nil, status: :ok
     # response = Response.new(response_params)
     # response.answerer_id = 'djr2dd2ac'
     # if response.save
