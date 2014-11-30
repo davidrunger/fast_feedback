@@ -1,1 +1,28 @@
-<h1>Sign Up</h1>
+<div class="form">
+  <h1>Sign Up</h1>
+
+  <form role="form" action="/users" method="post">
+    <input type="hidden"
+           name="authenticity_token"
+           value="<%= form_authenticity_token %>">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input name="user[email]"
+             type="email"
+             class="form-control"
+             id="email"
+             placeholder="yourname@example.com"
+             tabindex="1">
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input name="user[password]"
+             type="password"
+             class="form-control"
+             id="password"
+             placeholder="password"
+             tabindex="2">
+    </div>
+    <input type="submit" class="btn btn-primary" value="Sign Up" tabindex="3">
+  </form>
+</div>
