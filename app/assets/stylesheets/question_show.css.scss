@@ -6,10 +6,11 @@
 
 .question {
   font-size: 32px;
+  text-align: center;
   margin: 0 auto;
   min-width: 820px;
   max-width: 1000px;
-  padding: 20px 8px;
+  padding: 20px 8px 2px;
 }
 
 hr {
@@ -47,4 +48,5 @@ hr {
 
 #instructions {
   text-align: center;
+  font-size: 20px;
 }
