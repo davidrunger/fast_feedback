@@ -1,2 +1,2 @@
-json.extract!(answer, :id, :text, :sms_code, :ord);
+json.extract!(answer, :id, :text, :ord);
 json.set! :responseCount, answer.response_count

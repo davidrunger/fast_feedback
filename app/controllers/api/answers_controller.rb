@@ -13,6 +13,6 @@ class Api::AnswersController < ApplicationController
 
   private
   def answer_params
-    params.require(:answer).permit(:text, :sms_code, :question_id)
+    params.require(:answer).permit(:text, :question_id)
   end
 end

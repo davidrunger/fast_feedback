@@ -19,7 +19,7 @@ class Api::QuestionsController < ApplicationController
   def question_params
     params.require(:question).permit(
       :id, :title, :chart_type, :pic_url,
-      answers_attributes: [:id, :text, :sms_code, :ord, :_destroy]
+      answers_attributes: [:id, :text, :ord, :_destroy]
     )
   end
 end

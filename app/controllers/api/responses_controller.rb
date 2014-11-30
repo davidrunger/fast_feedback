@@ -3,7 +3,7 @@ class Api::ResponsesController < ApplicationController
 
   def create
     response = Response.new(
-      answer_id: Answer.where(sms_code: params[:text]).select('id').first.id,
+      answer_id: params[:text],
       answerer_id: params[:msisdn]
     )
     if response.save

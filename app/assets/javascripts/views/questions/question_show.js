@@ -25,7 +25,7 @@ FastFeedback.Views.QuestionShow = Backbone.CompositeView.extend({
   renderChart: function () {
     var categories = this.model.answers().map(function (answer) {
       return "<span class='answer-text'>" + answer.get("text") + "<br/>"
-        + "<span class='sms-code'>(" + answer.get("sms_code") + ")</span></span>";
+        + "<span class='sms-code'>(" + answer.id + ")</span></span>";
     });
     var data = this.responseData();
     var responseCounts = {
