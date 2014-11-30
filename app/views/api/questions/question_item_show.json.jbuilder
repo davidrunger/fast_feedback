@@ -1,0 +1,1 @@
+json.extract!(question_item, :id, :title)
