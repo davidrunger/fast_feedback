@@ -5,14 +5,14 @@
     </div>
     <div class="create col-sm-4">
       <div class="create-buttons">
-        <button class="btn btn-default">New Question</button>
+        <a class="btn btn-default" href="#/questions/new" role="button">New Question</a>
         <button class="btn btn-default">New Survey</button>
       </div>
     </div>
     <div class="auth col-sm-4">
       <div class="auth-buttons">
         <% if logged_in? %>
-          <button class="btn btn-primary btn-sm sign-out">Sign out</button>
+          <%= button_to 'Sign Out', session_url, method: :delete, class: "btn btn-primary btn-sm sign-out" %>
         <% else %>
           <button class="btn btn-primary btn-sm sign-up">Sign Up</button>
           or

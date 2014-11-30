@@ -16,8 +16,9 @@
   padding-right: 9px;
 }
 
-#header .auth button {
+.auth-buttons input {
   margin-top: 9px;
+  vertical-align: baseline;
 }
 
 .sample-chart {
@@ -36,11 +37,6 @@
   margin-bottom: 0px;
 }
 
-#header button {
-  margin-top: 5px;
-  vertical-align: baseline;
-}
-
 .row {
   margin-left: 0px;
   margin-right: 0px;
@@ -51,12 +47,12 @@
   text-shadow: none;
 }
 
-.auth-buttons button {
+#header input, #header a {
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
 }
 
-.create-buttons button {
-  margin: 0 4px;
+.create-buttons a {
+  margin: 5px 4px;
 }
 
 .create-buttons {

@@ -1,7 +1,7 @@
-<!-- <div id="slideshow">
-  <%= image_tag("backgrounds/high-schoolers.jpg", class: 'bgM') %>
-  <%= image_tag("backgrounds/kids-in-class.jpg", class: 'bgM') %>
-  <%= image_tag("backgrounds/raised-hands.jpg", class: 'bgM') %>
+<div id="slideshow">
+  <img src="app/assets/images/backgrounds/high-schoolers.jpg" class="bgM">
+  <img src="/backgrounds/kids-in-class.jpg" class="bgM">
+  <img src="/backgrounds/raised-hands.jpg" class="bgM">
 </div>
 
 <div class="container" id="landing-content">
@@ -15,11 +15,10 @@
     <div id="registration" class="col-sm-6">
       <p>Registered Users can save response data and organize multiple questions into surveys.</p>
       <div class="body-auth-buttons">
-        <a href="<%= new_user_url %>" class="btn btn-primary sign-up" tabindex="2">Sign Up</a>
+        <a href="/users/new" class="btn btn-primary sign-up" tabindex="2">Sign Up</a>
         <span id="or">or</span>
         <button class="btn btn-primary log-in" tabindex="3">Log In</button>
       </div>
     </div>
   </div>
 </div>
- -->

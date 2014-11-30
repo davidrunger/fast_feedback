@@ -4,9 +4,15 @@ FastFeedback.Routers.Router = Backbone.Router.extend({
   },
 
   routes: {
+    '': 'landingPage',
     'questions/new': 'new',
     'questions/:id': 'show',
     'my_polls': 'myPolls'
+  },
+
+  landingPage: function () {
+    var landingPageView = new FastFeedback.Views.LandingPage();
+    this._swapView(landingPageView)
   },
 
   myPolls: function () {

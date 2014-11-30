@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :responses, only: [:create]
     resource :current_user, only: [:show]
   end
+  resource :session, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create]
   resources :responses, only: [:create]
   get '/my_polls', to: 'polls#index', as: 'my_polls'
