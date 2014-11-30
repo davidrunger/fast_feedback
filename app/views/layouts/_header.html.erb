@@ -11,9 +11,13 @@
     </div>
     <div class="auth col-sm-4">
       <div class="auth-buttons">
-        <button class="btn btn-primary btn-sm sign-up">Sign Up</button>
-        or
-        <button class="btn btn-primary btn-sm log-in">Log In</button>
+        <% if logged_in? %>
+          <button class="btn btn-primary btn-sm sign-out">Sign out</button>
+        <% else %>
+          <button class="btn btn-primary btn-sm sign-up">Sign Up</button>
+          or
+          <button class="btn btn-primary btn-sm log-in">Log In</button>
+        <% end %>
       </div>
     </div>
   </div>
