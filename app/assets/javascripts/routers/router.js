@@ -5,7 +5,15 @@ FastFeedback.Routers.Router = Backbone.Router.extend({
 
   routes: {
     'questions/new': 'new',
-    'questions/:id': 'show'
+    'questions/:id': 'show',
+    'my_polls': 'myPolls'
+  },
+
+  myPolls: function () {
+    var user = new FastFeedback.Models.User();
+    user.fetch();
+    var myPollsView = new FastFeedback.Views.MyPolls({ model: user });
+    this._swapView(myPollsView);
   },
 
   new: function () {

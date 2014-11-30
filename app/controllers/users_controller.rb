@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_filter :require_logged_in!, only: [:account, :my_polls]
+
   def new
     render :new
   end
@@ -6,15 +8,22 @@ class UsersController < ApplicationController
   def create
     user = User.new(user_params)
     if user.save
-      redirect_to user_url(user)
+      login!(user)
+      redirect_to '#/my_polls'
     else
       flash.now[:errors] ||= []
       flash.now[:errors] << user.errors.full_messages
     end
   end
 
-  def show
-    render :show
+  def my_polls
+    @user = current_user
+    render :my_polls
+  end
+
+  def account
+    @user = current_user
+    render :account
   end
 
   private
