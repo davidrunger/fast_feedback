@@ -1,4 +1,8 @@
 <h1><strong>Question:</strong> <%= @question.title %></h1>
-<% @answers.each do |answer| %>
-  <button class="response-button" data-answer-id="<%= answer.id %>"><%= answer.text %></button>
-<% end %>
+<div class="row">
+  <div class="col-xs-12">
+    <% @answers.each do |answer| %>
+      <a href="javascript:void(0)" class="response-button btn btn-primary" data-answer-id="<%= answer.id %>"><%= answer.text %></a>
+    <% end %>
+  </div>
+</div>
