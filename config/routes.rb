@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :answers
     resources :responses, only: [:create]
   end
-  resources :users
+  resources :users, only: [:new, :create, :show]
   resources :responses, only: [:create]
   get '/questions/:id/vote', to: 'questions#vote'
 end

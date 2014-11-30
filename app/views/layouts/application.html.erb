@@ -11,6 +11,12 @@
 
 <%= render 'layouts/header' %>
 
+<% if flash[:errors] %>
+  <% flash[:errors].each do |error| %>
+      <div class="alert alert-danger" role="alert"><%= error %></div>
+  <% end %>
+<% end %>
+
 <div id='main'>
   <%= yield %>
 </div>
