@@ -1,7 +1,7 @@
 <header class="navbar navbar-default nav-pills" role="navigation" id="header">
   <div class="row">
     <div class="logo col-sm-4">
-      <a href="/"><%= image_tag("logo-white.png", class: 'logo') %></a>
+      <a href="/"><img src="https://fastfeedback.s3-us-west-1.amazonaws.com/logo-white.png" class="logo"></a>
     </div>
     <div class="create col-sm-4">
       <div class="create-buttons">
@@ -11,13 +11,13 @@
     </div>
     <div class="auth col-sm-4">
       <div class="auth-buttons">
-        <% if logged_in? %>
-          <%= button_to 'Sign Out', session_url, method: :delete, class: "btn btn-primary btn-sm sign-out" %>
-        <% else %>
+        <% if (!false) { %>
+          <button class="btn btn-primary btn-sm sign-out">Sign Out</button>
+        <% } else { %>
           <button class="btn btn-primary btn-sm sign-up">Sign Up</button>
           or
           <button class="btn btn-primary btn-sm log-in">Log In</button>
-        <% end %>
+        <% } %>
       </div>
     </div>
   </div>
