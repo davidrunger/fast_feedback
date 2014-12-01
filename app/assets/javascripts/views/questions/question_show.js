@@ -1,6 +1,5 @@
 FastFeedback.Views.QuestionShow = Backbone.CompositeView.extend({
   initialize: function () {
-    console.log('initializing');
     this.listenTo(this.model, 'sync', this.render);
     this.initializePusher();
   },
