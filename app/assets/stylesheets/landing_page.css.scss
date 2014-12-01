@@ -5,7 +5,7 @@
 .logo {
   height: 35px;
   margin-top: 4px;
-  padding-left: 5px;
+  margin-left: -5px;
 }
 
 .create-buttons {
@@ -26,11 +26,23 @@
   margin-bottom: 15px;
 }
 
-#header {
+header, nav.navbar.navbar-default.nav-pills, header .container {
   background-image: none;
   background-color: black;
   border: none;
   border-radius: 0px;
+}
+
+.navbar {
+  min-height: 0px;
+}
+
+#header {
+  border: none;
+}
+
+header .container {
+  width: 100%;
 }
 
 .navbar {
