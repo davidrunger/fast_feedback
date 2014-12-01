@@ -16,7 +16,7 @@ $(document).ready(function () {
     fx: 'fade',
     pager: '#smallnav', 
     pause:   10, 
-    speed: 2000,
-    timeout:  10000 
+    speed: 1000,
+    timeout:  7000 
   }); 
 });
