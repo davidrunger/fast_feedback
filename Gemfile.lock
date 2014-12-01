@@ -180,7 +180,6 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-sass (~> 3.3.1)
   coffee-rails (~> 4.0.0)
-  ejs
   figaro
   jbuilder (~> 2.0)
   jquery-rails
