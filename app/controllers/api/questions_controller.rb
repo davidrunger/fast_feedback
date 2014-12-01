@@ -6,6 +6,9 @@ class Api::QuestionsController < ApplicationController
 
   def create
     @question = Question.new(question_params)
+    if logged_in?
+      @question.user_id = current_user.id
+    end
     @question.save!
     render json: @question
   end
