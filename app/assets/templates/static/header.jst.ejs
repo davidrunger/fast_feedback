@@ -11,7 +11,7 @@
     </div>
     <div class="auth col-sm-4">
       <div class="auth-buttons">
-        <% if (current_user) { %>
+        <% if (current_user.attributes.email) { %>
           <button class="btn btn-primary btn-sm sign-out">Sign Out</button>
         <% } else { %>
           <button class="btn btn-primary btn-sm sign-up">Sign Up</button>

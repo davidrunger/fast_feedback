@@ -21,7 +21,6 @@ FastFeedback.Views.Header = Backbone.CompositeView.extend({
         type: 'DELETE',
         dataType: 'json',
         success: function(result) {
-          debugger
           Backbone.history.navigate('#/');
         }
     });
