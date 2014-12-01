@@ -1,6 +1,11 @@
 FastFeedback.Views.QuestionShow = Backbone.CompositeView.extend({
   initialize: function () {
+    console.log('initializing');
     this.listenTo(this.model, 'sync', this.render);
+    this.initializePusher();
+  },
+
+  initializePusher: function () {
     var pusher = new Pusher('64152daaea1aca17f899');
     var channel = pusher.subscribe('response-updates');
     channel.bind('response-event', function(data) {
@@ -8,9 +13,15 @@ FastFeedback.Views.QuestionShow = Backbone.CompositeView.extend({
     }.bind(this));
   },
 
+  removeCharts: function () {
+    Highcharts.charts.forEach(function (chart) {
+      chart.destroy();
+    });
+  },
+
   render: function (question, response, options) {
     // if chart is already on page, just update the chart
-    if (Highcharts.charts.length > 0) {
+    if (this.$el.html() !== '' && this.$el.find('#results-chart').html() !== '') {
       this.updateChart();
     }
     // chart is not yet on the page and we need to render the full template
