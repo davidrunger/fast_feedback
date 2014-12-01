@@ -1,0 +1,1 @@
+json.extract!(survey_item, :id, :title)
