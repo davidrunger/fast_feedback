@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :answers
     resources :responses, only: [:create]
     resource :current_user, only: [:show]
+    resources :users, only: [:create]
   end
   resource :session, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create]

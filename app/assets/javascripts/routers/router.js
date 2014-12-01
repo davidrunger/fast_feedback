@@ -17,9 +17,9 @@ FastFeedback.Routers.Router = Backbone.Router.extend({
   },
 
   myPolls: function () {
-    var user = new FastFeedback.Models.User();
-    user.fetch();
-    var myPollsView = new FastFeedback.Views.MyPolls({ model: user });
+    var current_user = new FastFeedback.Models.CurrentUser();
+    current_user.fetch();
+    var myPollsView = new FastFeedback.Views.MyPolls({ model: current_user });
     this._swapView(myPollsView);
   },
 
@@ -30,7 +30,8 @@ FastFeedback.Routers.Router = Backbone.Router.extend({
   },
 
   newUser: function () {
-    var newUserView = new FastFeedback.Views.NewUser();
+    var newUser = new FastFeedback.Models.User();
+    var newUserView = new FastFeedback.Views.NewUser({ model: newUser });
     this._swapView(newUserView);
   },
 
