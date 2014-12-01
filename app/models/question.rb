@@ -16,5 +16,5 @@ class Question < ActiveRecord::Base
   validates :title, presence: true
   has_many :answers, inverse_of: :question
   accepts_nested_attributes_for :answers
-  belongs_to :user
+  belongs_to :user, :survey
 end
