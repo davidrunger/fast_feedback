@@ -1,2 +1,11 @@
 <h1>My Polls View Static Header</h1>
 <h2>Your email: <%= user.escape('email') %></h2>
+
+<h2>Your questions:</h2>
+<% if (user.escape('questions').length === 0) { %>
+  <%= 'You have no questions! :(' %>
+<% } else { %>
+  <% user.get('questions').forEach(function (question) { %>
+    <div class="question-item"><%= question.escape('title') %></div>
+  <% }) %>
+<% } %>

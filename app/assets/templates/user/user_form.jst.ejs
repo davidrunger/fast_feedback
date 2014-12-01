@@ -1,5 +1,5 @@
 <div class="form">
-  <h1>Sign Up</h1>
+  <h1><%= action === 'login' ? 'Log In' : 'Sign Up' %></h1>
 
   <form role="form">
     <div class="form-group">
@@ -20,6 +20,6 @@
              placeholder="password"
              tabindex="2">
     </div>
-    <button id="sign-up" class="btn btn-primary" tabindex="3">Sign Up</button>
+    <button id="submit" class="btn btn-primary" tabindex="3">Sign Up</button>
   </form>
 </div>

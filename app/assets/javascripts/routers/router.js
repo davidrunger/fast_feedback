@@ -8,7 +8,8 @@ FastFeedback.Routers.Router = Backbone.Router.extend({
     'questions/new': 'newQuestion',
     'questions/:id': 'show',
     'my_polls': 'myPolls',
-    'users/new': 'newUser'
+    'users/new': 'newUser',
+    'login': 'login'
   },
 
   header: function () {
@@ -20,7 +21,13 @@ FastFeedback.Routers.Router = Backbone.Router.extend({
 
   landingPage: function () {
     var landingPageView = new FastFeedback.Views.LandingPage();
-    this._swapView(landingPageView)
+    this._swapView(landingPageView);
+  },
+
+  login: function () {
+    var user = new FastFeedback.Models.User();
+    var loginView = new FastFeedback.Views.Login({ model: user });
+    this._swapView(loginView);
   },
 
   myPolls: function () {

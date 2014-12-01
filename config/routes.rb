@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :responses, only: [:create]
     resource :current_user, only: [:show]
     resources :users, only: [:create]
-    delete '/current_user', to: 'current_users#logout'
+    resource :session, only: [:create, :destroy]
   end
   resource :session, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create]

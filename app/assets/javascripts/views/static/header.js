@@ -1,11 +1,16 @@
 FastFeedback.Views.Header = Backbone.CompositeView.extend({
   events: {
-    'click .sign-out': 'signOut'
+    'click .sign-out': 'signOut',
+    'click .log-in': 'logIn'
   },
 
   initialize: function (options) {
     this.current_user = options.current_user;
     this.listenTo(this.current_user, 'sync', this.render);
+  },
+
+  logIn: function () {
+    Backbone.history.navigate('#/login');
   },
 
   render: function () {
@@ -17,7 +22,7 @@ FastFeedback.Views.Header = Backbone.CompositeView.extend({
   signOut: function (event) {
     event.preventDefault();
     $.ajax({
-        url: 'api/current_user',
+        url: 'api/session',
         type: 'DELETE',
         dataType: 'json',
         success: function(result) {
