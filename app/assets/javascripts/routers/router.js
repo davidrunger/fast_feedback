@@ -1,6 +1,6 @@
 FastFeedback.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
-    this.$rootEl = options.$rootEl
+    this.$rootEl = options.$rootEl;
   },
 
   routes: {
@@ -9,6 +9,13 @@ FastFeedback.Routers.Router = Backbone.Router.extend({
     'questions/:id': 'show',
     'my_polls': 'myPolls',
     'users/new': 'newUser'
+  },
+
+  header: function () {
+    var current_user = new FastFeedback.Models.CurrentUser();
+    current_user.fetch();
+    var headerView = new FastFeedback.Views.Header({ current_user: current_user });
+    return headerView;
   },
 
   landingPage: function () {
@@ -46,7 +53,7 @@ FastFeedback.Routers.Router = Backbone.Router.extend({
       this._currentView.remove()
     }
     this._currentView = view;
-    this.$rootEl.html(JST['static/header']());
+    this.$rootEl.html(this.header().render().$el);
     this.$rootEl.append(this._currentView.render().$el);
   }
 });

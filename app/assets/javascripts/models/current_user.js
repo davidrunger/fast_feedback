@@ -1,3 +1,3 @@
 FastFeedback.Models.CurrentUser = Backbone.Model.extend({
-  urlRoot: '/api/current_user'
+  url: '/api/current_user'
 });
