@@ -20,7 +20,7 @@ class Api::SurveysController < ApplicationController
   def survey_params
     params.require(:survey).permit(
       :id, :title, :default_num_questions,
-      questions_attributes: [:id, :title, :ord, :_destroy]
+      questions_attributes: [:id, :title, :ord, :answers_attributes, :_destroy]
     )
   end
 end
