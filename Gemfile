@@ -18,7 +18,6 @@ gem 'autoprefixer-rails'
 gem 'backbone-on-rails'
 gem "figaro"
 gem 'pusher', '~> 0.14.2'
-gem 'ejs'
 
 group :development do
   gem 'better_errors'
