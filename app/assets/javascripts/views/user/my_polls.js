@@ -4,7 +4,7 @@ FastFeedback.Views.MyPolls = Backbone.CompositeView.extend({
   },
 
   render: function (question, response, options) {
-    var content = this.template({ user: this.model });
+    var content = this.template({ user: this.model, questions: this.model.questions() });
     this.$el.html(content);
     return this;
   },

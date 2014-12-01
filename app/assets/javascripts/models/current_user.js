@@ -8,5 +8,12 @@ FastFeedback.Models.CurrentUser = Backbone.Model.extend({
     return response;
   },
 
+  questions: function () {
+    this._questions = this._questions || new FastFeedback.Collections.Questions([], {
+      user: this
+    });
+    return this._questions;
+  },
+
   url: '/api/current_user'
 });
