@@ -46,6 +46,7 @@ FastFeedback.Routers.Router = Backbone.Router.extend({
       this._currentView.remove()
     }
     this._currentView = view;
-    this.$rootEl.html(this._currentView.render().$el);
+    this.$rootEl.html(JST['static/header']());
+    this.$rootEl.append(this._currentView.render().$el);
   }
 });

@@ -1,5 +1,5 @@
 class RootController < ApplicationController
   def root
-    render :landing_page
+    render :text => "", :layout => true
   end
 end
