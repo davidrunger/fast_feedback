@@ -14,8 +14,9 @@ FastFeedback.Views.QuestionForm = Backbone.CompositeView.extend({
     'click .add-answer': 'addAnswer'
   },
 
-  initialize: function () {
+  initialize: function (options) {
     this.collection = this.model.answers();
+    this.isInSurvey = options.isInSurvey;
   },
 
   publish: function (event) {
@@ -29,7 +30,7 @@ FastFeedback.Views.QuestionForm = Backbone.CompositeView.extend({
   },
 
   render: function () {
-    var content = this.template({ question: this.model });
+    var content = this.template({ question: this.model, isInSurvey: this.isInSurvey });
     this.$el.html(content);
     while (this.model.num_answers < 2) {
       this.addAnswer();

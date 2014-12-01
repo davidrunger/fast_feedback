@@ -3,7 +3,7 @@ FastFeedback.Views.SurveyForm = Backbone.CompositeView.extend({
     event && event.preventDefault();
     var question = new FastFeedback.Models.Question({ ord: ++this.model.num_questions });
     this.collection.add(question);
-    var questionFormView = new FastFeedback.Views.QuestionForm({ model: question });
+    var questionFormView = new FastFeedback.Views.QuestionForm({ model: question, isInSurvey: true });
     this.addSubview('.questions', questionFormView);
   },
 
@@ -37,6 +37,8 @@ FastFeedback.Views.SurveyForm = Backbone.CompositeView.extend({
     this.attachSubviews();
     return this;
   },
+
+  role: 'form',
 
   tagName: 'form',
 
