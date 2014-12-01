@@ -7,6 +7,8 @@ FastFeedback.Views.QuestionForm = Backbone.CompositeView.extend({
     this.addSubview('.answers', answerFormView);
   },
 
+  className: 'question-form',
+
   events: {
     'click .publish-question': 'publish',
     'click .add-answer': 'addAnswer'

@@ -2,3 +2,21 @@
   margin: 40px;
   display: block;
 }
+
+.question-form {
+  margin: 20px 0px 0px 30px;
+  h1 {
+    margin-bottom: 10px;
+  }
+  label {
+    display: block;
+  }
+  textarea {
+    display: block;
+  }
+  .question {
+    font-size: 20px;
+    text-align: left;
+    margin-bottom: 25px;
+  }
+}
