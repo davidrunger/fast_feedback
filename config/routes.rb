@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'root#root'
   namespace :api do
+    resources :surveys
     resources :questions
     resources :answers
     resources :responses, only: [:create]
