@@ -6,6 +6,7 @@ FastFeedback.Routers.Router = Backbone.Router.extend({
   routes: {
     '': 'landingPage',
     'questions/new': 'newQuestion',
+    'surveys/new': 'newSurvey',
     'questions/:id': 'show',
     'my_polls': 'myPolls',
     'users/new': 'newUser',
@@ -41,6 +42,12 @@ FastFeedback.Routers.Router = Backbone.Router.extend({
     var newQuestion = new FastFeedback.Models.Question();
     var questionFormView = new FastFeedback.Views.QuestionForm({ model: newQuestion });
     this._swapView(questionFormView);
+  },
+
+  newSurvey: function () {
+    var newSurvey = new FastFeedback.Models.Survey();
+    var surveyFormView = new FastFeedback.Views.SurveyForm({ model: newSurvey });
+    this._swapView(surveyFormView);
   },
 
   newUser: function () {
