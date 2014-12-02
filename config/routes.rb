@@ -10,5 +10,5 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :web_responses
   end
-  get '/questions/:id/vote', to: 'questions#vote'
+  get ':id', to: 'questions#vote'
 end

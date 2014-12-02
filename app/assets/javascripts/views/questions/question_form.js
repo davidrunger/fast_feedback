@@ -5,6 +5,9 @@ FastFeedback.Views.QuestionForm = Backbone.CompositeView.extend({
     this.collection.add(answer);
     var answerFormView = new FastFeedback.Views.AnswerForm({ model: answer });
     this.addSubview('.answers', answerFormView);
+    if (this.model.num_answers >= 4) {
+      this.$el.find('.add-answer').addClass('disabled');
+    }
   },
 
   className: 'question-form',

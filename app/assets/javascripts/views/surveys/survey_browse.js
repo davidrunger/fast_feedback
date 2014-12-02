@@ -20,18 +20,12 @@ FastFeedback.Views.SurveyBrowse = Backbone.CompositeView.extend({
 
   nextQuestion: function (event) {
     event.preventDefault();
-    if (event.target.classList.contains('disabled')) {
-      return;
-    }
     this._current_index++;
     this.render();
   },
 
   prevQuestion: function (event) {
     event.preventDefault();
-    if (event.target.classList.contains('disabled')) {
-      return;
-    }
     this._current_index--;
     this.render();
   },
