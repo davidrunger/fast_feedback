@@ -1,7 +1,6 @@
 FastFeedback.Views.SurveyForm = Backbone.CompositeView.extend({
   addQuestion: function (event) {
     event && event.preventDefault();
-    debugger
     if (this.model.num_questions !== 0) {
       this.savePriorQuestion();
     }
@@ -29,7 +28,6 @@ FastFeedback.Views.SurveyForm = Backbone.CompositeView.extend({
   publish: function (event) {
     event.preventDefault();
     var surveyAttrs = this.$el.serializeJSON();
-    debugger
     this.model.save(surveyAttrs, {
       success: function () {
         Backbone.history.navigate('#/surveys/' + this.model.id)
@@ -50,20 +48,19 @@ FastFeedback.Views.SurveyForm = Backbone.CompositeView.extend({
   role: 'form',
 
   savePriorQuestion: function () {
-    debugger
     var questionAttrs = this.$el.find('form').serializeJSON()
     questionAttrs['question']['survey_id'] = this.model.id;
     var question = new FastFeedback.Models.Question(questionAttrs);
     question.save({}, {
       success: function () {
         console.log('you did it, david! :)');
-        debugger
       }.bind(this)
     });
   },
 
   saveTitle: function (event) {
     event.preventDefault();
+    debugger
     var title = event.target.value
     this.model.save({ title: title })
   },

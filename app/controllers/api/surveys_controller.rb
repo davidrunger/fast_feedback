@@ -16,6 +16,12 @@ class Api::SurveysController < ApplicationController
     render json: @survey
   end
 
+  def update
+    @survey = Survey.find(params[:id])
+    @survey.update!(survey_params)
+    render json: @survey, status: :ok
+  end
+
   private
   def survey_params
     params.require(:survey).permit(
