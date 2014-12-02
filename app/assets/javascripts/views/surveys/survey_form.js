@@ -12,8 +12,6 @@ FastFeedback.Views.SurveyForm = Backbone.CompositeView.extend({
     this.addSubview('.questions', questionFormView);
   },
 
-  className: 'survey-form',
-
   events: {
     'click .publish-survey': 'publish',
     'click .add-question': 'addQuestion'

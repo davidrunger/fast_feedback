@@ -11,6 +11,8 @@
 
 <button class="add-answer">Add another answer</button>
 <button>Show more options</button>
-<% if (!isInSurvey) { %>
+<% if (isInSurvey) { %>
+  <div class="next-question"></div>
+<% } else { %>
   <button class="publish-question">Publish My Question!</button>
 <% } %>
