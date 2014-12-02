@@ -10,7 +10,6 @@ FastFeedback.Views.QuestionShow = Backbone.CompositeView.extend({
       var channel = pusher.subscribe('response-updates');
       channel.bind('response-event', function(data) {
         this.model.fetch();
-        console.log('fetching (cuz push)');
       }.bind(this));
     }
   },
@@ -24,14 +23,12 @@ FastFeedback.Views.QuestionShow = Backbone.CompositeView.extend({
   },
 
   render: function (question, response, options) {
-    console.log('rendering');
     // if chart is already on page, just update the chart
     if (this.$el.html() !== '' && this.$el.find('#results-chart').html() !== '') {
       this.updateChart();
     }
     // chart is not yet on the page and we need to render the full template
     else {
-      console.log('not updating');
       var content = this.template({ question: this.model, answers: this.model.answers() });
       this.$el.html(content);
       this.renderChart();
@@ -92,7 +89,6 @@ FastFeedback.Views.QuestionShow = Backbone.CompositeView.extend({
   },
 
   updateChart: function () {
-    console.log('updating');
     Highcharts.charts[Highcharts.charts.length-1].series[0].setData(this.responseData(), true, true)
   },
 
