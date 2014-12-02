@@ -48,7 +48,7 @@ FastFeedback.Views.SurveyForm = Backbone.CompositeView.extend({
   role: 'form',
 
   savePriorQuestion: function () {
-    var questionAttrs = this.$el.find('form').serializeJSON()
+    var questionAttrs = this.$el.find('form').last().serializeJSON()
     questionAttrs['question']['survey_id'] = this.model.id;
     var question = new FastFeedback.Models.Question(questionAttrs);
     question.save({}, {
