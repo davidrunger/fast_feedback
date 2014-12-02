@@ -1,7 +1,7 @@
 <h1><strong>Survey:</strong> <%= survey.escape('title') %></h1>
 
 <% if (questions.models[0]) { %>
-  <a href="#/questions/<%= questions.models[0].id %>">Start Survey</a>
+  <a href="#/surveys/<%= survey.id %>/browse">Start Survey</a>
 <% } %>
 
 <h3>Questions in this survey:</h3>

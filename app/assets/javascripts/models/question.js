@@ -19,6 +19,5 @@ FastFeedback.Models.Question = Backbone.Model.extend({
     return response;
   },
 
-
   urlRoot: '/api/questions'
 });

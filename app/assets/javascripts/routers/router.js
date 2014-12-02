@@ -9,9 +9,17 @@ FastFeedback.Routers.Router = Backbone.Router.extend({
     'questions/new': 'newQuestion',
     'questions/:id': 'showQuestion',
     'surveys/new': 'newSurvey',
+    'surveys/:id/browse': 'browseSurvey',
     'surveys/:id': 'showSurvey',
     'my_polls': 'myPolls',
     'login': 'login'
+  },
+
+  browseSurvey: function (id) {
+    var survey = new FastFeedback.Models.Survey({ id: id });
+    survey.fetch();
+    var surveyBrowseView = new FastFeedback.Views.SurveyBrowse({ model: survey });
+    this._swapView(surveyBrowseView);
   },
 
   header: function () {
