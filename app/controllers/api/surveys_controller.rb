@@ -24,7 +24,7 @@ class Api::SurveysController < ApplicationController
 
   def show
     @survey = Survey.find(params[:id])
-    render json: @survey
+    render :survey_show
   end
 
   private

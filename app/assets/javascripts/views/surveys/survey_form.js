@@ -53,14 +53,12 @@ FastFeedback.Views.SurveyForm = Backbone.CompositeView.extend({
     var question = new FastFeedback.Models.Question(questionAttrs);
     question.save({}, {
       success: function () {
-        console.log('you did it, david! :)');
       }.bind(this)
     });
   },
 
   saveTitle: function (event) {
     event.preventDefault();
-    debugger
     var title = event.target.value
     this.model.save({ title: title })
   },

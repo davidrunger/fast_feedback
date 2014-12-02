@@ -21,7 +21,7 @@ class Api::QuestionsController < ApplicationController
   private
   def question_params
     params.require(:question).permit(
-      :id, :title, :chart_type, :pic_url, :survey_id,
+      :id, :title, :chart_type, :pic_url, :survey_id, :ord,
       answers_attributes: [:id, :text, :ord, :_destroy]
     )
   end

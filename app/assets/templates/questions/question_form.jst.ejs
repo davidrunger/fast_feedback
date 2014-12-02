@@ -7,6 +7,8 @@
   <textarea name="question[title]" cols="38" rows="3" maxlength="120"></textarea>
 </label>
 
+<input type="hidden" name="question[ord]" value="<%= question.escape('ord') %>">
+
 <div class="answers"></div>
 
 <button class="add-answer">Add another answer</button>

@@ -1,1 +1,10 @@
-<h1>You are in a Survey Show View</h1>
+<h1><strong>Survey:</strong> <%= survey.escape('title') %></h1>
+
+<% if (questions.models[0]) { %>
+  <a href="#/questions/<%= questions.models[0].id %>">Start Survey</a>
+<% } %>
+
+<h3>Questions in this survey:</h3>
+<% questions.forEach(function (question) { %>
+  <div class=".question-item"><%= question.escape('title') %></div>
+<% }) %>

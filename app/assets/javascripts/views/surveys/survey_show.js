@@ -4,7 +4,10 @@ FastFeedback.Views.SurveyShow = Backbone.CompositeView.extend({
   },
 
   render: function (question, response, options) {
-    var content = this.template();
+    var content = this.template({
+      survey: this.model,
+      questions: this.model.questions()
+    });
     this.$el.html(content);
     return this;
   },
