@@ -8,7 +8,7 @@ class Api::WebResponsesController < ApplicationController
       Pusher.app_id = ENV['PUSHER_APP_ID']
       Pusher.key = ENV['PUSHER_KEY']
       Pusher.secret = ENV['PUSHER_SECRET']
-      Pusher.trigger('response-updates', 'response-event', {:message => 'hello world'})
+      Pusher.trigger("response-updates-#{response.answer.question.id}", 'response-event', {:message => 'hello world'})
       render json: response
     else
       render json: response.errors.full_messages, status: :unprocessable_entity
