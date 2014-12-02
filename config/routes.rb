@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resources :surveys
     resources :questions
     resources :answers
-    resources :responses, only: [:create]
+    resources :sms_responses, only: [:create]
     resource :current_user, only: [:show]
     resources :users, only: [:create]
     resource :session, only: [:create, :destroy]
