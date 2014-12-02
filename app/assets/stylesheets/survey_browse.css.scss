@@ -1,16 +1,33 @@
 .survey-nav {
   overflow: auto;
-  text-align: center
+  text-align: center;
+  background-color: #f8f8f8;
+  border: 1px #e7e7e7 solid;
+  padding: 3px 10px;
+  .glyphicon {
+    font-size: 10px;
+  }
 }
 
 .prev {
   float: left;
+  .glyphicon {
+    padding-right: 5px;
+  }
 }
 
 .next {
   float: right;
+  .glyphicon {
+    padding-left: 5px;
+  }
 }
 
-.position {
+.survey-title, .position {
   display: inline-block;
+  margin: 0 20px;
+}
+
+.disabled, .disabled:hover {
+  color: gray;
 }

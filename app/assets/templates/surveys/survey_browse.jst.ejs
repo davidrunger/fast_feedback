@@ -1,7 +1,8 @@
 <div class="survey-nav">
-  <a href="#" class="prev">Prev</a>
-  <div class="position"><%= ord %>/<%= num_questions %></div>
-  <a href="#" class="next">Next</a>
+  <button class="btn btn-default btn-xs prev"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous</button>
+  <div class="survey-title"><strong>Survey: </strong><%= survey.escape('title') %></div>
+  <div class="position"><strong>Question: </strong><%= ord %>/<%= num_questions %></div>
+  <button class="btn btn-default btn-xs next">Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
 </div>
 
 <div class="question"></div>

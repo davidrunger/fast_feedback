@@ -1,4 +1,13 @@
 FastFeedback.Views.SurveyBrowse = Backbone.CompositeView.extend({
+  disableNav: function () {
+    if (this._current_index === 0) {
+      this.$el.find('.prev').addClass('disabled');
+    }
+    if (this._current_index === this._num_questions - 1) {
+      this.$el.find('.next').addClass('disabled');
+    }
+  },
+
   events: {
     'click .next': 'nextQuestion',
     'click .prev': 'prevQuestion'
@@ -11,12 +20,18 @@ FastFeedback.Views.SurveyBrowse = Backbone.CompositeView.extend({
 
   nextQuestion: function (event) {
     event.preventDefault();
+    if (event.target.classList.contains('disabled')) {
+      return;
+    }
     this._current_index++;
     this.render();
   },
 
   prevQuestion: function (event) {
     event.preventDefault();
+    if (event.target.classList.contains('disabled')) {
+      return;
+    }
     this._current_index--;
     this.render();
   },
@@ -38,6 +53,7 @@ FastFeedback.Views.SurveyBrowse = Backbone.CompositeView.extend({
       this._question_subview = new FastFeedback.Views.QuestionShow({ model: question });
       this.$el.find('.question').html(this._question_subview.render().$el);
     }
+    this.disableNav();
     return this;
   },
 
