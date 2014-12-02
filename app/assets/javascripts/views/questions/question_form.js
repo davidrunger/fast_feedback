@@ -17,10 +17,6 @@ FastFeedback.Views.QuestionForm = Backbone.CompositeView.extend({
   initialize: function (options) {
     this.collection = this.model.answers();
     this.isInSurvey = options.isInSurvey;
-    if (options.divContainer) {
-      this.setElement(options.divContainer);
-      this.$el.removeClass('next-question').addClass('question-subform');
-    }
   },
 
   publish: function (event) {
