@@ -5,26 +5,33 @@ FastFeedback.Views.QuestionShow = Backbone.CompositeView.extend({
   },
 
   initializePusher: function () {
-    var pusher = new Pusher('64152daaea1aca17f899');
-    var channel = pusher.subscribe('response-updates');
-    channel.bind('response-event', function(data) {
-      this.model.fetch();
-    }.bind(this));
+    if (Pusher.instances.length === 0) {
+      var pusher = new Pusher('64152daaea1aca17f899');
+      var channel = pusher.subscribe('response-updates');
+      channel.bind('response-event', function(data) {
+        this.model.fetch();
+        console.log('fetching (cuz push)');
+      }.bind(this));
+    }
   },
 
   removeCharts: function () {
     Highcharts.charts.forEach(function (chart) {
-      chart.destroy();
+      if (typeof chart !== 'undefined') {
+        chart.destroy();
+      }
     });
   },
 
   render: function (question, response, options) {
+    console.log('rendering');
     // if chart is already on page, just update the chart
     if (this.$el.html() !== '' && this.$el.find('#results-chart').html() !== '') {
       this.updateChart();
     }
     // chart is not yet on the page and we need to render the full template
     else {
+      console.log('not updating');
       var content = this.template({ question: this.model, answers: this.model.answers() });
       this.$el.html(content);
       this.renderChart();
@@ -85,7 +92,8 @@ FastFeedback.Views.QuestionShow = Backbone.CompositeView.extend({
   },
 
   updateChart: function () {
-    Highcharts.charts[0].series[0].setData(this.responseData(), true, true)
+    console.log('updating');
+    Highcharts.charts[Highcharts.charts.length-1].series[0].setData(this.responseData(), true, true)
   },
 
   template: JST['questions/question_show']
