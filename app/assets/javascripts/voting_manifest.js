@@ -1,3 +1,3 @@
 //= require jquery
 //= require bootstrap-sprockets
-//= vote
+//= require vote
