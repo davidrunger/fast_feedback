@@ -20,6 +20,6 @@ $(document).ready(function () {
     pager: '#smallnav', 
     pause:   10, 
     speed: 1000,
-    timeout:  7000 
+    timeout:  5000 
   }); 
 });
