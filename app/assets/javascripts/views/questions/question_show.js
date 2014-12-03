@@ -27,7 +27,7 @@ FastFeedback.Views.QuestionShow = Backbone.CompositeView.extend({
 
   render: function (question, response, options) {
     // chart is not yet on the page and we need to render the full template
-    if (this.isFirstRender()) {
+    if (this.isFirstRender() || this.$el.html() === '' || (this.$el.find('#results-chart') && this.$el.find('#results-chart').html() === '')) {
       var content = this.template({ question: this.model, answers: this.model.answers() });
       this.$el.html(content);
       this.renderChart();
@@ -97,6 +97,7 @@ FastFeedback.Views.QuestionShow = Backbone.CompositeView.extend({
     }
     else if (Pusher.instances[0].channels.all().length === 1) {
       var oldChannelName = Pusher.instances[0].channels.all()[0].name;
+      Pusher.instances[0].unsubscribe(oldChannelName);
       Pusher.instances[0].channels.remove(oldChannelName);
     }
     var channel = FastFeedback.pusher.subscribe('response-updates-' + this.model.id);
