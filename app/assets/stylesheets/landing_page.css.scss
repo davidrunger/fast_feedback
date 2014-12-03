@@ -196,7 +196,7 @@ html, body {
   text-shadow: 1px 1px 1px #666666;
   color: #ffffff;
   text-decoration: none;
-  border: none;
+  border: 1px solid rgb(63, 104, 179);
 }
 
 .btn-primary:hover {
@@ -207,7 +207,6 @@ html, body {
   background-image: -o-linear-gradient(top, #3cb0fd, #1988d1);
   background-image: linear-gradient(to bottom, #3cb0fd, #1988d1);
   text-decoration: none;
-  border: none;
 }
 
 .btn-default {

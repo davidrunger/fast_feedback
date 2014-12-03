@@ -1,7 +1,14 @@
 FastFeedback.Views.Header = Backbone.CompositeView.extend({
+  demoAccount: function (event) {
+    event.preventDefault();
+    $('#email').val('demo@user.net');
+    $('#password').val('password');
+  },
+
   events: {
     'click .sign-out': 'signOut',
-    'click .modal-sign-in': 'signIn'
+    'click .modal-sign-in': 'signIn',
+    'click .demo-account': 'demoAccount'
   },
 
   initialize: function (options) {
