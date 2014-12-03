@@ -27,6 +27,7 @@ FastFeedback.Views.SurveyForm = Backbone.CompositeView.extend({
 
   publish: function (event) {
     event.preventDefault();
+    this.savePriorQuestion();
     var surveyAttrs = this.$el.serializeJSON();
     this.model.save(surveyAttrs, {
       success: function () {
