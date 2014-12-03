@@ -1,7 +1,6 @@
 FastFeedback.Views.Header = Backbone.CompositeView.extend({
   events: {
     'click .sign-out': 'signOut',
-    'click .log-in': 'logIn'
   },
 
   initialize: function (options) {

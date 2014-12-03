@@ -20,8 +20,8 @@
             <li class="dropdown">
               <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">Create<span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="#/questions/new">... a new Question</a></li>
-                <li><a href="#/surveys/new">... a new Survey</a></li>
+                <li><a href="#/questions/new">New Question</a></li>
+                <li><a href="#/surveys/new">New Survey</a></li>
               </ul>                
             </li>
             <% if (current_user.attributes.email) { %>
@@ -35,8 +35,8 @@
                 </ul>
               </li>
             <% } else { %>
-              <li><a href="javascript:void(0)" class="sign-up">Sign Up</a></li>
-              <li><a href="javascript:void(0)" class="log-in">Log In</a></li>
+              <li><a href="#/users/new" class="sign-up">Sign Up</a></li>
+              <li><a href="#/login" class="log-in">Log In</a></li>
             <% } %>
           </ul>
     </div><!-- /.navbar-collapse -->
