@@ -11,6 +11,7 @@ contact page
 attribution page
 overview of the app's technology
 footer?
+don't use CompositeView unnecessarily
 fix ghetto invalid username/password message (and flash notices in general)
 rewrite session token if another user logs in on top of old user
 set FastFeedback.current_user to avoid render flash (see home -> create question)
