@@ -1,4 +1,4 @@
-FastFeedback.Views.MyPolls = Backbone.CompositeView.extend({
+FastFeedback.Views.MySurveys = Backbone.CompositeView.extend({
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
   },
