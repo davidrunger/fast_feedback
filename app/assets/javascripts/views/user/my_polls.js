@@ -4,6 +4,7 @@ FastFeedback.Views.MyPolls = Backbone.CompositeView.extend({
   },
 
   render: function (question, response, options) {
+    $('body').removeClass('modal-open'); // remove class left over from modal login
     var content = this.template({
       user: this.model,
       questions: this.model.questions(),
