@@ -11,6 +11,7 @@ FastFeedback.Routers.Router = Backbone.Router.extend({
     'surveys/new': 'newSurvey',
     'surveys/:id/browse': 'browseSurvey',
     'surveys/:id': 'showSurvey',
+    'my_account': 'myAccount',
     'my_questions': 'myQuestions',
     'my_surveys': 'mySurveys',
     'login': 'login'

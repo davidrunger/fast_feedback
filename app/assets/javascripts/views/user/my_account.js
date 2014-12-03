@@ -1,4 +1,6 @@
 FastFeedback.Views.MyAccount = Backbone.CompositeView.extend({
+  className: 'my-account',
+
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
   },
@@ -14,5 +16,5 @@ FastFeedback.Views.MyAccount = Backbone.CompositeView.extend({
     return this;
   },
 
-  template: JST['user/my_polls']
+  template: JST['user/my_account']
 });

@@ -1,4 +1,6 @@
 FastFeedback.Views.MyQuestions = Backbone.CompositeView.extend({
+  className: 'my-questions',
+
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
   },

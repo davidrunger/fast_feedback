@@ -14,7 +14,7 @@ FastFeedback.Views.NewUser = Backbone.CompositeView.extend({
     var userAttrs = this.$el.find('form').serializeJSON();
     this.model.save(userAttrs, {
       success: function () {
-        Backbone.history.navigate('#/my_polls') 
+        Backbone.history.navigate('#/my_account') 
       }.bind(this)
     });
   },
