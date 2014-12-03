@@ -1,8 +1,12 @@
-<label>
-  Answer <%= answer.escape('ord') %>:
-  <input type="text" maxlength="40"
-         name="question[answers_attributes][<%= answer.escape('ord') %>][text]">
+<div class="form-group">
+  <label class="col-xs-3">Answer <%= answer.escape('ord') %>:</label>
+  <div class="col-xs-9">
+    <input type="text"
+           class="form-control"
+           name="question[answers_attributes][<%= answer.escape('ord') %>][text]"
+           maxlength="100"
+  </div>
   <input type="hidden"
          name="question[answers_attributes][<%= answer.escape('ord') %>][ord]"
          value="<%= answer.escape('ord') %>">
-</label>
+</div>

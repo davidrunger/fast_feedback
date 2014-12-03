@@ -2,10 +2,15 @@
   <h1>Create a Quick Question</h1>
 <% } %>
 
-<label class="question">
-  Question:
-  <textarea name="question[title]" cols="38" rows="3" maxlength="120"></textarea>
-</label>
+<div class="form-group question-title-field">
+  <label for="question-title-<%= question.escape('ord') %>">Question<%= isInSurvey ? (" " + question.escape('ord')) : "" %>:</label>
+  <textarea id="question-title-<%= question.escape('ord') %>"
+            class="form-control"
+            name="question[title]"
+            maxlength="120"
+            rows="4"
+            placeholder="What would you like to ask your audience?"></textarea>
+</div>
 
 <input type="hidden" name="question[ord]" value="<%= question.escape('ord') %>">
 

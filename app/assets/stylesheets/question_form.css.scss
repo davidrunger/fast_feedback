@@ -4,19 +4,47 @@
 }
 
 .question-form {
-  margin: 20px 0px 0px 30px;
-  h1 {
-    margin-bottom: 10px;
+  margin: 20px 0px 0px 0px;
+  .answers {
+    margin-left: -73px;
   }
   label {
     display: block;
   }
-  textarea {
-    display: block;
-  }
-  .question {
-    font-size: 20px;
+  .question-title-field {
+    font-size: 19px;
     text-align: left;
-    margin-bottom: 25px;
+    textarea {
+      display: block;
+      height: 60px;
+      font-size: 16px;
+    }
   }
+  .answer-field {
+    font-size: 16px;
+    font-weight: normal;
+    margin: 4px 0px;
+    div {
+      padding-right: 0px;
+      padding-left: 0px;
+    }
+    label {
+      text-align: right;
+      margin-top: 4px;
+      margin-bottom: 0px;
+    }
+  }
+  .form-control {
+    height: 28px;
+  }
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: #333;
+  background-image: -webkit-linear-gradient(left, #ccc, #333, #ccc); 
+  background-image:    -moz-linear-gradient(left, #ccc, #333, #ccc); 
+  background-image:     -ms-linear-gradient(left, #ccc, #333, #ccc); 
+  background-image:      -o-linear-gradient(left, #ccc, #333, #ccc); 
 }
