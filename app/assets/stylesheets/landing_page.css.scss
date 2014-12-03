@@ -44,6 +44,7 @@ header, nav.navbar.navbar-default.nav-pills, header .container {
 
 header .container {
   width: 100%;
+  height: 0px;
 }
 
 .navbar {
@@ -58,10 +59,6 @@ header .container {
 .auth-buttons {
   float: right;
   text-shadow: none;
-}
-
-#header button, #header a {
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
 }
 
 .create-buttons a {
@@ -177,9 +174,4 @@ h1 {
 
 h2 {
   margin-left: 30px;
-}
-
-.navbar-nav > li > a.dropdown-toggle {
-  padding-top: 12px;
-  padding-bottom: 12px;
 }
