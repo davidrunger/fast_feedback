@@ -5,6 +5,7 @@
            class="form-control"
            name="question[answers_attributes][<%= answer.escape('ord') %>][text]"
            maxlength="100"
+           tabindex="<%= answer.escape('ord') + 1 %>">
   </div>
   <input type="hidden"
          name="question[answers_attributes][<%= answer.escape('ord') %>][ord]"

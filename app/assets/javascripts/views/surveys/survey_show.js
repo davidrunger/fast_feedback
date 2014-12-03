@@ -1,4 +1,6 @@
 FastFeedback.Views.SurveyShow = Backbone.CompositeView.extend({
+  className: 'survey',
+
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
   },
