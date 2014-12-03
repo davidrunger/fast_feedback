@@ -41,7 +41,7 @@ FastFeedback.Views.QuestionShow = Backbone.CompositeView.extend({
   },
 
   renderChart: function () {
-    var categories = this.model.answers().map(function (answer) {
+    var answer_choices = this.model.answers().map(function (answer) {
       return "<span class='answer-text'>" + answer.get("text") + "<br/>"
         + "<span class='sms-code'>(" + answer.id + ")</span></span>";
     });
@@ -63,7 +63,7 @@ FastFeedback.Views.QuestionShow = Backbone.CompositeView.extend({
           text: ''
         },
         xAxis: {
-          categories: categories,
+          categories: answer_choices,
           labels: {
             style: {
               'font-size': '26px'
