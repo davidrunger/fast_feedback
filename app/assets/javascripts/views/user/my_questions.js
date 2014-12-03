@@ -4,15 +4,13 @@ FastFeedback.Views.MyQuestions = Backbone.CompositeView.extend({
   },
 
   render: function (question, response, options) {
-    $('body').removeClass('modal-open'); // remove class left over from modal login
     var content = this.template({
       user: this.model,
       questions: this.model.questions(),
-      surveys: this.model.surveys()
     });
     this.$el.html(content);
     return this;
   },
 
-  template: JST['user/my_polls']
+  template: JST['user/my_questions']
 });

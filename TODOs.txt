@@ -1,4 +1,5 @@
 SCREEN-RECORD MY PRESENTATION!
+remove $('body').removeClass('modal-open');
 #/my_account
 decrease image sizes further (jpg compression)
 actually fix survey-creation buttons/process (!)

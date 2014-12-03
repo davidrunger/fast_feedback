@@ -1,0 +1,10 @@
+<h1>Your surveys:</h1>
+<div class="surveys-container">
+  <% if (surveys.length === 0) { %>
+    <%= 'You have no surveys! :(' %>
+  <% } else { %>
+    <% surveys.forEach(function (survey) { %>
+      <div class="survey-item"><a href="/#/surveys/<%= survey.id %>"><%= survey.escape('title') %></a></div>
+    <% }) %>
+  <% } %>
+</div>

@@ -41,6 +41,13 @@ FastFeedback.Routers.Router = Backbone.Router.extend({
     this._swapView(loginView);
   },
 
+  myAccount: function () {
+    var current_user = new FastFeedback.Models.CurrentUser();
+    current_user.fetch();
+    var myAccountView = new FastFeedback.Views.MyAccount({ model: current_user });
+    this._swapView(myAccountView);
+  },
+
   myQuestions: function () {
     var current_user = new FastFeedback.Models.CurrentUser();
     current_user.fetch();
