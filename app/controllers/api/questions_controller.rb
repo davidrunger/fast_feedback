@@ -1,6 +1,6 @@
 class Api::QuestionsController < ApplicationController
   def index
-    @questions = Question.all
+    @questions = Question.where("survey_id IS NULL")
     render json: @questions
   end
 
