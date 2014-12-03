@@ -1,6 +1,7 @@
 FastFeedback.Views.Header = Backbone.CompositeView.extend({
   events: {
     'click .sign-out': 'signOut',
+    'click .modal-sign-in': 'signIn'
   },
 
   initialize: function (options) {
@@ -16,6 +17,23 @@ FastFeedback.Views.Header = Backbone.CompositeView.extend({
     var content = this.template({ current_user: this.current_user });
     this.$el.html(content);
     return this;
+  },
+
+  signIn: function (event) {
+    event.preventDefault();
+    var userAttrs = this.$el.find('form').serializeJSON();
+    $.ajax({
+      type: "POST",
+      url: "/api/session",
+      dataType: 'json',
+      data: userAttrs,
+      success: function (data, status) {
+        Backbone.history.navigate('#/my_polls');
+      },
+      error: function (response, status) {
+        this.$el.prepend(response.responseText);
+      }.bind(this)
+    });
   },
 
   signOut: function (event) {

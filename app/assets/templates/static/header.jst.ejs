@@ -36,9 +36,51 @@
               </li>
             <% } else { %>
               <li><a href="#/users/new" class="sign-up">Sign Up</a></li>
-              <li><a href="#/login" class="log-in">Log In</a></li>
+              <li><a data-toggle="modal" data-target="#loginModal" href="#/login" class="log-in">Log In</a></li>
             <% } %>
           </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
+<div id="loginModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h1 class="text-center">Login</h1>
+      </div>
+      <div class="modal-body">
+        <form class="form col-md-12 center-block" role="form">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input name="user[email]"
+                   type="email"
+                   class="form-control input-lg"
+                   id="email"
+                   placeholder="yourname@example.com"
+                   tabindex="10">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input name="user[password]"
+                   type="password"
+                   class="form-control input-lg"
+                   id="password"
+                   placeholder="password"
+                   tabindex="11">
+          </div>
+          <div class="form-group">
+            <button id="submit" class="btn btn-primary btn-lg btn-block modal-sign-in" tabindex="12">Sign In</button>
+            <div class="text-center"><a href="javascript:void(0)">Register</a></div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <div class="col-md-12">
+          <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+        </div>    
+      </div>
+    </div>
+  </div>
+</div>
