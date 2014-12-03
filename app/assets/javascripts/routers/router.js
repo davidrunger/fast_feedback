@@ -11,10 +11,17 @@ FastFeedback.Routers.Router = Backbone.Router.extend({
     'surveys/new': 'newSurvey',
     'surveys/:id/browse': 'browseSurvey',
     'surveys/:id': 'showSurvey',
-    'my_account': 'myAccount',
-    'my_questions': 'myQuestions',
-    'my_surveys': 'mySurveys',
+    'account': 'account',
+    'questions': 'questionsIndex',
+    'surveys': 'surveys',
     'login': 'login'
+  },
+
+  account: function () {
+    var current_user = new FastFeedback.Models.CurrentUser();
+    current_user.fetch();
+    var myAccountView = new FastFeedback.Views.MyAccount({ model: current_user });
+    this._swapView(myAccountView);
   },
 
   browseSurvey: function (id) {
@@ -42,27 +49,6 @@ FastFeedback.Routers.Router = Backbone.Router.extend({
     this._swapView(loginView);
   },
 
-  myAccount: function () {
-    var current_user = new FastFeedback.Models.CurrentUser();
-    current_user.fetch();
-    var myAccountView = new FastFeedback.Views.MyAccount({ model: current_user });
-    this._swapView(myAccountView);
-  },
-
-  myQuestions: function () {
-    var current_user = new FastFeedback.Models.CurrentUser();
-    current_user.fetch();
-    var myQuestionsView = new FastFeedback.Views.MyQuestions({ model: current_user });
-    this._swapView(myQuestionsView);
-  },
-
-  mySurveys: function () {
-    var current_user = new FastFeedback.Models.CurrentUser();
-    current_user.fetch();
-    var mySurveysView = new FastFeedback.Views.MySurveys({ model: current_user });
-    this._swapView(mySurveysView);
-  },
-
   newQuestion: function () {
     var newQuestion = new FastFeedback.Models.Question();
     var questionFormView = new FastFeedback.Views.QuestionForm({ model: newQuestion });
@@ -81,6 +67,13 @@ FastFeedback.Routers.Router = Backbone.Router.extend({
     this._swapView(newUserView);
   },
 
+  questionsIndex: function () {
+    var current_user = new FastFeedback.Models.CurrentUser();
+    current_user.fetch();
+    var questionsIndexView = new FastFeedback.Views.QuestionsIndex({ model: current_user });
+    this._swapView(questionsIndexView);
+  },
+
   showQuestion: function (id) {
     var question = FastFeedback.questions.getOrFetch(id);
     var questionShowView = new FastFeedback.Views.QuestionShow({ model: question });
@@ -92,6 +85,13 @@ FastFeedback.Routers.Router = Backbone.Router.extend({
     survey.fetch();
     var surveyShowView = new FastFeedback.Views.SurveyShow({ model: survey });
     this._swapView(surveyShowView);
+  },
+
+  surveys: function () {
+    var current_user = new FastFeedback.Models.CurrentUser();
+    current_user.fetch();
+    var surveysIndexView = new FastFeedback.Views.SurveysIndex({ model: current_user });
+    this._swapView(surveysIndexView);
   },
 
   _swapView: function (view) {

@@ -17,7 +17,7 @@ footer?
 don't use CompositeView unnecessarily
 fix ghetto invalid username/password message (and flash notices in general)
 rewrite session token if another user logs in on top of old user
-set FastFeedback.current_user to avoid render flash (see home -> create question)
+set FastFeedback.current_user to avoid render flash (see home -> create question) AND will also cleanup questions_index/surveys_index code
 delete any unused css/javascript
 login/signup modal... must conform
 fix backward initial chart render

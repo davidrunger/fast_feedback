@@ -1,4 +1,4 @@
-FastFeedback.Views.MySurveys = Backbone.CompositeView.extend({
+FastFeedback.Views.SurveysIndex = Backbone.CompositeView.extend({
   className: 'my-surveys',
 
   initialize: function () {
@@ -14,5 +14,5 @@ FastFeedback.Views.MySurveys = Backbone.CompositeView.extend({
     return this;
   },
 
-  template: JST['user/my_surveys']
+  template: JST['surveys/index']
 });

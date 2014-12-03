@@ -1,0 +1,10 @@
+<h1>Your questions</h1>
+<div class="questions-container">
+  <% if (questions.length === 0) { %>
+    <%= 'You have no questions! :(' %>
+  <% } else { %>
+    <% questions.forEach(function (question) { %>
+      <div class="question-item"><a href="/#/questions/<%= question.id %>"><%= question.escape('title') %></a></div>
+    <% }) %>
+  <% } %>
+</div>
