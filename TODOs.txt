@@ -1,0 +1,59 @@
+SCREEN-RECORD MY PRESENTATION!
+#/my_account
+decrease image sizes further (jpg compression)
+actually fix survey-creation buttons/process (!)
+get another landing page image? (substitute or add?)
+demo user
+fix tabindex on new survey form
+margin below "publish my survey" button
+about page
+contact page
+attribution page
+overview of the app's technology
+footer?
+fix ghetto invalid username/password message (and flash notices in general)
+rewrite session token if another user logs in on top of old user
+set FastFeedback.current_user to avoid render flash (see home -> create question)
+delete any unused css/javascript
+login/signup modal... must conform
+fix backward initial chart render
+google speed tool (enable gzip)
+pull-right bootstrap class for janky answer form alignment
+css spinners
+make survey show listings of questions into links that take you directly to that question
+don't getOrFetch; remove FastFeedback.questions
+add interest to page (images, bootsnip, hover effects, *something*)
+question not found (backbone 404 page)
+don't render standalone questions
+summary view of survey results
+change chart color/chart type
+default number of answer choices for surveys
+maybe separate out surveys/questions views? i kinda like this for the routes
+status indicator: Pusher.instances[0].connection.state
+pusher.connection.bind('state_change', function(states) {
+  // states = {previous: 'oldState', current: 'newState'}
+  $('div#status').text("Pusher's current state is " + states.current);
+});
+edit/remove everything (with auth!)
+sortable table of questions/surveys (order questions by when created, how many resonses, etc)
+jqueryUI.sortable for questions, answer choices
+prevent "Pusher is not defined on slow internet"
+favicon
+
+===ATTRIBUTION PAGE===
+jQuery
+Backbone
+Ruby
+Rails
+highcharts
+twitter bootstrap
+http://jquery.malsup.com/cycle/download.html
+images
+squarespace logo creator http://www.squarespace.com/logo/
+many helpful tutorials
+http://www.bootply.com/118328
+
+===PERFORMANCE===
+serve assets via CDN's instead of my own server
+serve js/css assets on a per-page basis
+extract only the parts of bootstrap that i need
