@@ -1,10 +1,10 @@
 FastFeedback.Models.CurrentUser = Backbone.Model.extend({
   parse: function (response) {
-    if (response.questions) {
+    if (response && response.questions) {
       this.questions().set(response.questions, { parse: true });
       delete response.questions;
     }
-    if (response.surveys) {
+    if (response && response.surveys) {
       this.surveys().set(response.surveys, { parse: true });
       delete response.surveys;
     }
