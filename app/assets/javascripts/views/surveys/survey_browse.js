@@ -45,7 +45,6 @@ FastFeedback.Views.SurveyBrowse = Backbone.CompositeView.extend({
     var question = this.model.questions().models[this._current_index];
     if (question) {
       question.fetch();
-      Pusher.instances = [];
       this._question_subview = new FastFeedback.Views.QuestionShow({ model: question });
       this.$el.find('.question').html(this._question_subview.render().$el);
     }

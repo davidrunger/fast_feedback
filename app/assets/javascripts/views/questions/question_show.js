@@ -1,17 +1,21 @@
 FastFeedback.Views.QuestionShow = Backbone.CompositeView.extend({
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
-    this.initializePusher();
+    this.subscribeToChannel();
   },
 
-  initializePusher: function () {
-    if (Pusher.instances.length === 0) {
-      var pusher = new Pusher('64152daaea1aca17f899');
-      var channel = pusher.subscribe('response-updates-' + this.model.id);
-      channel.bind('response-event', function(data) {
-        this.model.fetch();
-      }.bind(this));
+  subscribeToChannel: function () {
+    if (Pusher.instances[0].channels.all().length > 1) {
+      console.log('pusher error');
     }
+    else if (Pusher.instances[0].channels.all().length === 1) {
+      var oldChannelName = Pusher.instances[0].channels.all()[0].name;
+      Pusher.instances[0].channels.remove(oldChannelName);
+    }
+    var channel = FastFeedback.pusher.subscribe('response-updates-' + this.model.id);
+    channel.bind('response-event', function(data) {
+      this.model.fetch();
+    }.bind(this));
   },
 
   removeCharts: function () {
