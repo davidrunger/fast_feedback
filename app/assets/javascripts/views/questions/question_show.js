@@ -4,18 +4,17 @@ FastFeedback.Views.QuestionShow = Backbone.CompositeView.extend({
     this.subscribeToChannel();
   },
 
-  subscribeToChannel: function () {
-    if (Pusher.instances[0].channels.all().length > 1) {
-      console.log('pusher error');
+  isFirstRender: function () {
+    var data = this.responseData();
+    var sum = 0;
+    for (var i = 0; i < data.length; i++) {
+      sum += data[i];
     }
-    else if (Pusher.instances[0].channels.all().length === 1) {
-      var oldChannelName = Pusher.instances[0].channels.all()[0].name;
-      Pusher.instances[0].channels.remove(oldChannelName);
+    if (sum === 0 || sum === 1) {
+      return true;
+    } else {
+      return false;
     }
-    var channel = FastFeedback.pusher.subscribe('response-updates-' + this.model.id);
-    channel.bind('response-event', function(data) {
-      this.model.fetch();
-    }.bind(this));
   },
 
   removeCharts: function () {
@@ -27,15 +26,15 @@ FastFeedback.Views.QuestionShow = Backbone.CompositeView.extend({
   },
 
   render: function (question, response, options) {
-    // if chart is already on page, just update the chart
-    if (this.$el.html() !== '' && this.$el.find('#results-chart').html() !== '') {
-      this.updateChart();
-    }
     // chart is not yet on the page and we need to render the full template
-    else {
+    if (this.isFirstRender()) {
       var content = this.template({ question: this.model, answers: this.model.answers() });
       this.$el.html(content);
       this.renderChart();
+    }
+    // if chart is already on page, just update the chart
+    else {
+      this.updateChart();
     }
     return this;
   },
@@ -90,6 +89,20 @@ FastFeedback.Views.QuestionShow = Backbone.CompositeView.extend({
     return this.model.answers().map(function (answer) {
       return answer.get('responseCount');
     });
+  },
+
+  subscribeToChannel: function () {
+    if (Pusher.instances[0].channels.all().length > 1) {
+      console.log('pusher error');
+    }
+    else if (Pusher.instances[0].channels.all().length === 1) {
+      var oldChannelName = Pusher.instances[0].channels.all()[0].name;
+      Pusher.instances[0].channels.remove(oldChannelName);
+    }
+    var channel = FastFeedback.pusher.subscribe('response-updates-' + this.model.id);
+    channel.bind('response-event', function(data) {
+      this.model.fetch();
+    }.bind(this));
   },
 
   updateChart: function () {

@@ -21,7 +21,7 @@ google speed tool (enable gzip)
 pull-right bootstrap class for janky answer form alignment
 css spinners
 make survey show listings of questions into links that take you directly to that question
-don't getOrFetch; remove FastFeedback.questions
+fix getOrFetch; remove FastFeedback.questions. be able to go directly to questions
 add interest to page (images, bootsnip, hover effects, *something*)
 question not found (backbone 404 page)
 don't render standalone questions
