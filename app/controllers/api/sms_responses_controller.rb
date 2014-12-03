@@ -1,4 +1,5 @@
 class Api::SmsResponsesController < ApplicationController
+  require 'pusher'
   skip_before_action :verify_authenticity_token, only: [:create]
 
   def create

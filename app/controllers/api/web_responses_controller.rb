@@ -1,5 +1,6 @@
 class Api::WebResponsesController < ApplicationController
   require 'pusher'
+  skip_before_action :verify_authenticity_token, only: [:create]
 
   def create
     response = Response.new(response_params)
