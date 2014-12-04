@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user, :logged_in?
+  after_filter :set_access_control_headers
 
   def login!(user)
     @current_user = user
@@ -24,5 +25,9 @@ class ApplicationController < ActionController::Base
 
   def require_logged_in!
     redirect_to new_session_url unless logged_in?
+  end
+
+  def set_access_control_headers
+    headers['Access-Control-Allow-Origin'] = 'http://fastfeedback.io'
   end
 end
