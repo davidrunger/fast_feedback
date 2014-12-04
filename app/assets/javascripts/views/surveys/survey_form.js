@@ -12,31 +12,20 @@ FastFeedback.Views.SurveyForm = Backbone.CompositeView.extend({
 
   addQuestion: function (question) {
     this.collection.add(question);
-    var questionSurveyShowView = new FastFeedback.Views.QuestionSurveyShow({
+    var questionContainerView = new FastFeedback.Views.QuestionContainer({
       model: question
     });
-    this.addSubview('.questions', questionSurveyShowView);
-    this.attachSubview('.questions', questionSurveyShowView);
+    this.addSubview('.questions', questionContainerView);
+    this.attachSubview('.questions', questionContainerView);
   },
 
   className: 'survey-form',
-
-  editQuestion: function (event) {
-    event.preventDefault();
-    var ord = $(event.target).data('ord')
-    var question = this.model.questions().findWhere({ord: ord});
-    var questionFormView = new FastFeedback.Views.QuestionForm({ model: question, isInModal: true });
-    this.addSubview('.modal-body', questionFormView);
-    this.$el.find('.modal-body').html(questionFormView.render().$el);
-  },
 
   events: {
     'change #survey-title': 'saveTitle',
     'keyup #survey-title': 'saveTitle',
     'click .publish-survey': 'publish',
-    'click .add-question': 'addQuestion',
-    'click .edit-question': 'editQuestion',
-    'click .save-question': 'savePriorQuestion'
+    'click .add-question': 'addQuestion'
   },
 
   initialize: function () {

@@ -1,0 +1,12 @@
+<div class="question-title">
+  <strong>Question <%= question.escape('ord') %>: </strong><%= question.escape('title') %>
+  <button class="edit-question btn btn-default">
+    Edit Question
+  </button>
+</div>
+
+<ul class="answers">
+  <% answers.forEach(function (answer) { %>
+    <li><%= answer.escape('text') %></li>
+  <% }) %>
+</ul>

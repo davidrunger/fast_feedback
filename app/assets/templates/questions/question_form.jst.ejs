@@ -20,9 +20,8 @@
 <button class="add-answer btn btn-default btn-sm" tabindex="50">Add another answer</button>
 <button class="btn btn-default btn-sm" tabindex="51">Question options</button>
 <% if (isInSurvey) { %>
-  <div class="next-question"></div>
-<% } else if (isInModal) { %>
   <button class="save-question btn btn-primary" tabindex="52">Save Question</button>
+  <div class="next-question"></div>
 <% } else { %>
   <button class="publish-question btn btn-primary" tabindex="52">Publish My Question!</button>
 <% } %>
