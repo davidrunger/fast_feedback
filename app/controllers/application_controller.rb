@@ -28,6 +28,6 @@ class ApplicationController < ActionController::Base
   end
 
   def set_access_control_headers
-    headers['Access-Control-Allow-Origin'] = 'http://fastfeedback.io'
+    headers['Access-Control-Allow-Origin'] = 'http://www.fastfeedback.io'
   end
 end
