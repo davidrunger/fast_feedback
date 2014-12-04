@@ -1,4 +1,5 @@
 SCREEN-RECORD MY PRESENTATION!
+don't allow creation of responses for questions that don't yet exist in the database
 reply to text message to confirm vote counting
 fix now-broken styling of the sign-up page (make modal, too?)
 remove $('body').removeClass('modal-open');
@@ -36,7 +37,6 @@ edit/remove everything (with auth!)
 sortable table of questions/surveys (order questions by when created, how many resonses, etc)
 jqueryUI.sortable for questions, answer choices
 prevent "Pusher is not defined on slow internet"
-favicon
 add warning about how editing a question will delete any response data accumulated so far
 
 ===ATTRIBUTION PAGE===
