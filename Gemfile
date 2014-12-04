@@ -19,6 +19,7 @@ gem 'backbone-on-rails'
 gem "figaro"
 gem 'pusher', '~> 0.14.2'
 gem 'ejs'
+gem 'rack-zippy'
 
 group :development do
   gem 'better_errors'
