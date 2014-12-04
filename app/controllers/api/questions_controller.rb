@@ -18,6 +18,13 @@ class Api::QuestionsController < ApplicationController
     render :question_show
   end
 
+  def update
+    @question = Question.find(params[:id])
+    @question.answers.destroy_all
+    @question.update!(question_params)
+    render 'api/questions/question_show'
+  end
+
   private
   def question_params
     params.require(:question).permit(

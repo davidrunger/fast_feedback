@@ -6,7 +6,7 @@ FastFeedback.Views.QuestionForm = Backbone.CompositeView.extend({
 
   addBlankAnswer: function (event) {
     event && event.preventDefault();
-    var answer = new FastFeedback.Models.Answer({ ord: ++this.model.num_answers });
+    var answer = new FastFeedback.Models.Answer({ ord: this.model.numAnswers() + 1 });
     this.collection.add(answer);
     var answerFormView = new FastFeedback.Views.AnswerForm({ model: answer });
     this.addSubview('.answers', answerFormView);
@@ -43,11 +43,11 @@ FastFeedback.Views.QuestionForm = Backbone.CompositeView.extend({
         this.addAnswer(answer);
       }.bind(this));
     } else {
-      while (this.model.num_answers < 2) {
+      while (this.model.numAnswers() < 2) {
         this.addBlankAnswer();
       }      
     }
-    if (this.model.num_answers >= 4) {
+    if (this.model.numAnswers() >= 4) {
       this.$el.find('.add-answer').addClass('disabled');
     }
     this.attachSubviews();

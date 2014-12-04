@@ -10,7 +10,7 @@
             maxlength="120"
             rows="4"
             placeholder="What would you like to ask your audience?"
-            tabindex="2"></textarea>
+            tabindex="2"><%= question.escape('title') %></textarea>
 </div>
 
 <input type="hidden" name="question[ord]" value="<%= question.escape('ord') %>">

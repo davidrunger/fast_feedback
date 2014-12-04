@@ -6,8 +6,8 @@ FastFeedback.Models.Question = Backbone.Model.extend({
     return this._answers;
   },
 
-  initialize: function () {
-    this.num_answers = 0;
+  numAnswers: function () {
+    return this.answers().length;
   },
 
   parse: function (response) {

@@ -4,12 +4,12 @@ window.FastFeedback = {
   Views: {},
   Routers: {},
   initialize: function () {
-    FastFeedback.questions = new FastFeedback.Collections.Questions();
-    new FastFeedback.Routers.Router({ $rootEl: $('#main') });
-    Backbone.history.start();
     if (Pusher && Pusher.instances.length === 0) {
       FastFeedback.pusher = new Pusher('64152daaea1aca17f899');
     }
+    FastFeedback.questions = new FastFeedback.Collections.Questions();
+    new FastFeedback.Routers.Router({ $rootEl: $('#main') });
+    Backbone.history.start();
   }
 }
 
