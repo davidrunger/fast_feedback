@@ -1,4 +1,5 @@
 SCREEN-RECORD MY PRESENTATION!
+refactor ord of questions into sismply id in survey edit form
 when editing survey, title should be "edit"
 load jquery separately via CDN?
 download pusher.js into app.js

@@ -22,6 +22,7 @@ FastFeedback.Views.QuestionForm = Backbone.CompositeView.extend({
   initialize: function (options) {
     this.collection = this.model.answers();
     this.isInSurvey = options.isInSurvey;
+    this.isInModal = options.isInModal;
     this.listenTo(this.model, 'sync', this.render);
   },
 
@@ -36,7 +37,11 @@ FastFeedback.Views.QuestionForm = Backbone.CompositeView.extend({
   },
 
   render: function () {
-    var content = this.template({ question: this.model, isInSurvey: this.isInSurvey });
+    var content = this.template({
+      question: this.model,
+      isInSurvey: this.isInSurvey,
+      isInModal: this.isInModal
+    });
     this.$el.html(content);
     if (this.model.id) {
       this.model.answers().each(function (answer) {

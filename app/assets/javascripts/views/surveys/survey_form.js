@@ -16,15 +16,27 @@ FastFeedback.Views.SurveyForm = Backbone.CompositeView.extend({
       model: question
     });
     this.addSubview('.questions', questionSurveyShowView);
+    this.attachSubview('.questions', questionSurveyShowView);
   },
 
   className: 'survey-form',
+
+  editQuestion: function (event) {
+    event.preventDefault();
+    var ord = $(event.target).data('ord')
+    var question = this.model.questions().findWhere({ord: ord});
+    var questionFormView = new FastFeedback.Views.QuestionForm({ model: question, isInModal: true });
+    this.addSubview('.modal-body', questionFormView);
+    this.$el.find('.modal-body').html(questionFormView.render().$el);
+  },
 
   events: {
     'change #survey-title': 'saveTitle',
     'keyup #survey-title': 'saveTitle',
     'click .publish-survey': 'publish',
-    'click .add-question': 'addQuestion'
+    'click .add-question': 'addQuestion',
+    'click .edit-question': 'editQuestion',
+    'click .save-question': 'savePriorQuestion'
   },
 
   initialize: function () {
@@ -65,13 +77,15 @@ FastFeedback.Views.SurveyForm = Backbone.CompositeView.extend({
 
   role: 'form',
 
-  savePriorQuestion: function () {
+  savePriorQuestion: function (event) {
+    event && event.preventDefault();
     if (this.model.num_questions > 0) {
       var questionAttrs = this.$el.find('form').last().serializeJSON()
       questionAttrs['question']['survey_id'] = this.model.id;
       var question = new FastFeedback.Models.Question(questionAttrs);
       question.save({}, {
         success: function () {
+          event && Backbone.history.navigate("#/surveys/<%= this.model.id %>/edit");
         }.bind(this)
       });
     }
