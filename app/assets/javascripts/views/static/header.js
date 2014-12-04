@@ -35,7 +35,7 @@ FastFeedback.Views.Header = Backbone.CompositeView.extend({
       dataType: 'json',
       data: userAttrs,
       success: function (data, status) {
-        Backbone.history.navigate('#/my_account');
+        Backbone.history.navigate('#/account');
       },
       error: function (response, status) {
         this.$el.prepend(response.responseText);

@@ -16,5 +16,5 @@ FastFeedback.Views.MyAccount = Backbone.CompositeView.extend({
     return this;
   },
 
-  template: JST['user/my_account']
+  template: JST['user/account']
 });
