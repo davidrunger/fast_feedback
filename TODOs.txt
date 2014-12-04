@@ -2,11 +2,8 @@ SCREEN-RECORD MY PRESENTATION!
 reply to text message to confirm vote counting
 fix now-broken styling of the sign-up page (make modal, too?)
 remove $('body').removeClass('modal-open');
-#/my_account
 decrease image sizes further (jpg compression)
-actually fix survey-creation buttons/process (!)
 get another landing page image? (substitute or add?)
-demo user
 fix tabindex on new survey form
 margin below "publish my survey" button
 about page
@@ -19,8 +16,7 @@ fix ghetto invalid username/password message (and flash notices in general)
 rewrite session token if another user logs in on top of old user
 set FastFeedback.current_user to avoid render flash (see home -> create question) AND will also cleanup questions_index/surveys_index code
 delete any unused css/javascript
-login/signup modal... must conform
-fix backward initial chart render
+signup modal... must conform
 google speed tool (enable gzip)
 pull-right bootstrap class for janky answer form alignment
 css spinners
@@ -28,11 +24,9 @@ make survey show listings of questions into links that take you directly to that
 fix getOrFetch; remove FastFeedback.questions. be able to go directly to questions
 add interest to page (images, bootsnip, hover effects, *something*)
 question not found (backbone 404 page)
-don't render standalone questions
 summary view of survey results
 change chart color/chart type
 default number of answer choices for surveys
-maybe separate out surveys/questions views? i kinda like this for the routes
 status indicator: Pusher.instances[0].connection.state
 pusher.connection.bind('state_change', function(states) {
   // states = {previous: 'oldState', current: 'newState'}
