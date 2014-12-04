@@ -3,6 +3,10 @@ FastFeedback.Models.Survey = Backbone.Model.extend({
     this.num_questions = 0;
   },
 
+  numQuestions: function () {
+    return this.questions().length;
+  },
+
   questions: function () {
     this._questions = this._questions || new FastFeedback.Collections.Questions([], {
       question: this

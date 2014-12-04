@@ -1,10 +1,16 @@
 FastFeedback.Views.SurveyForm = Backbone.CompositeView.extend({
-  addQuestion: function (event) {
+  addBlankQuestion: function (event) {
     event && event.preventDefault();
-    if (this.model.num_questions !== 0) {
-      this.savePriorQuestion();
-    }
     var question = new FastFeedback.Models.Question({ ord: ++this.model.num_questions });
+    this.collection.add(question);
+    var questionFormView = new FastFeedback.Views.QuestionForm({
+      model: question,
+      isInSurvey: true
+    });
+    this.addSubview('.questions', questionFormView);
+  },
+
+  addQuestion: function (question) {
     this.collection.add(question);
     var questionFormView = new FastFeedback.Views.QuestionForm({
       model: question,
@@ -22,6 +28,7 @@ FastFeedback.Views.SurveyForm = Backbone.CompositeView.extend({
   },
 
   initialize: function () {
+    this.listenTo(this.model, 'sync', this.render);
     this.collection = this.model.questions();
   },
 
@@ -39,8 +46,15 @@ FastFeedback.Views.SurveyForm = Backbone.CompositeView.extend({
   render: function () {
     var content = this.template({ survey: this.model });
     this.$el.html(content);
-    while (this.model.num_questions < 1) {
-      this.addQuestion();
+    if (this.model.id) {
+      this.model.questions().each(function (question) {
+        this.savePriorQuestion();
+        this.addQuestion(question);
+      }.bind(this));
+    } else {
+      while (this.model.numQuestions() === 0) {
+        this.addBlankQuestion();
+      }
     }
     this.attachSubviews();
     return this;
@@ -49,13 +63,15 @@ FastFeedback.Views.SurveyForm = Backbone.CompositeView.extend({
   role: 'form',
 
   savePriorQuestion: function () {
-    var questionAttrs = this.$el.find('form').last().serializeJSON()
-    questionAttrs['question']['survey_id'] = this.model.id;
-    var question = new FastFeedback.Models.Question(questionAttrs);
-    question.save({}, {
-      success: function () {
-      }.bind(this)
-    });
+    if (this.model.num_questions > 0) {
+      var questionAttrs = this.$el.find('form').last().serializeJSON()
+      questionAttrs['question']['survey_id'] = this.model.id;
+      var question = new FastFeedback.Models.Question(questionAttrs);
+      question.save({}, {
+        success: function () {
+        }.bind(this)
+      });
+    }
   },
 
   saveTitle: function (event) {
