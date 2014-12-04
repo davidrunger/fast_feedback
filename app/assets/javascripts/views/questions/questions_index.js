@@ -1,4 +1,9 @@
 FastFeedback.Views.QuestionsIndex = Backbone.CompositeView.extend({
+  activateTooltips: function () {
+    $(".edit").tooltip({placement : 'top'});
+    $(".delete").tooltip({placement : 'top'});
+  },
+
   className: 'my-questions',
 
   initialize: function () {
@@ -11,6 +16,7 @@ FastFeedback.Views.QuestionsIndex = Backbone.CompositeView.extend({
       questions: this.model.questions(),
     });
     this.$el.html(content);
+    this.activateTooltips();
     return this;
   },
 

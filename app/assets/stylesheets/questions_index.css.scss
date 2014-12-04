@@ -1,0 +1,22 @@
+.my-questions {
+  margin: 30px 40px;
+  .questions-container {
+    margin: 20px 20px;
+    font-size: 18px;
+    color: rgb(95, 95, 95);
+  }
+}
+
+.question-item {
+  margin: 8px 0;
+  .edit, .delete {
+    margin: 0 2px;
+    vertical-align: middle;
+  }
+  .edit {
+    color: #406BD8;
+  }
+  .delete {
+    color: rgb(195, 19, 19);
+  }
+}
