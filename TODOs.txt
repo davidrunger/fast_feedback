@@ -1,4 +1,5 @@
 SCREEN-RECORD MY PRESENTATION!
+when editing survey, title should be "edit"
 load jquery separately via CDN?
 download pusher.js into app.js
 don't allow creation of responses for questions that don't yet exist in the database

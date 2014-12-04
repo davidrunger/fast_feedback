@@ -12,28 +12,29 @@ FastFeedback.Views.SurveyForm = Backbone.CompositeView.extend({
 
   addQuestion: function (question) {
     this.collection.add(question);
-    var questionFormView = new FastFeedback.Views.QuestionForm({
-      model: question,
-      isInSurvey: true
+    var questionSurveyShowView = new FastFeedback.Views.QuestionSurveyShow({
+      model: question
     });
-    this.addSubview('.questions', questionFormView);
+    this.addSubview('.questions', questionSurveyShowView);
   },
 
   className: 'survey-form',
 
   events: {
-    'blur #survey-title': 'saveTitle',
+    'change #survey-title': 'saveTitle',
+    'keyup #survey-title': 'saveTitle',
     'click .publish-survey': 'publish',
     'click .add-question': 'addQuestion'
   },
 
   initialize: function () {
-    this.listenTo(this.model, 'sync', this.render);
+    this.listenToOnce(this.model, 'sync', this.render);
     this.collection = this.model.questions();
   },
 
   publish: function (event) {
     event.preventDefault();
+    this.saveTitle();
     this.savePriorQuestion();
     var surveyAttrs = this.$el.serializeJSON();
     this.model.save(surveyAttrs, {
@@ -47,10 +48,12 @@ FastFeedback.Views.SurveyForm = Backbone.CompositeView.extend({
     var content = this.template({ survey: this.model });
     this.$el.html(content);
     if (this.model.id) {
-      this.model.questions().each(function (question) {
-        this.savePriorQuestion();
-        this.addQuestion(question);
-      }.bind(this));
+      if (this.subviews('.questions').length < this.model.numQuestions()) {
+        this.model.questions().each(function (question) {
+          this.savePriorQuestion();
+          this.addQuestion(question);
+        }.bind(this));
+      }
     } else {
       while (this.model.numQuestions() === 0) {
         this.addBlankQuestion();
@@ -75,9 +78,9 @@ FastFeedback.Views.SurveyForm = Backbone.CompositeView.extend({
   },
 
   saveTitle: function (event) {
-    event.preventDefault();
-    var title = event.target.value
-    this.model.save({ title: title })
+    event && event.preventDefault();
+    var title = this.$el.find('#survey-title').val();
+    this.model.save({ title: title });
   },
 
   template: JST['surveys/survey_form']
