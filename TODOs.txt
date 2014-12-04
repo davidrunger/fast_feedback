@@ -43,6 +43,7 @@ sortable table of questions/surveys (order questions by when created, how many r
 jqueryUI.sortable for questions, answer choices
 prevent "Pusher is not defined on slow internet"
 favicon
+add warning about how editing a question will delete any response data accumulated so far
 
 ===ATTRIBUTION PAGE===
 jQuery
@@ -61,3 +62,4 @@ http://www.bootply.com/118328
 serve assets via CDN's instead of my own server
 serve js/css assets on a per-page basis
 extract only the parts of bootstrap that i need
+optimize database queries
