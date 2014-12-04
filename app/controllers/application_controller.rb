@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user, :logged_in?
-  after_filter :set_access_control_headers
+  before_action :set_access_control_headers
 
   def login!(user)
     @current_user = user
