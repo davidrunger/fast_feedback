@@ -14,7 +14,7 @@ FastFeedback.Routers.Router = Backbone.Router.extend({
     'surveys/:id': 'showSurvey',
     'account': 'account',
     'questions': 'questionsIndex',
-    'surveys': 'surveys',
+    'surveys': 'surveysIndex',
     'login': 'login'
   },
 
@@ -94,7 +94,7 @@ FastFeedback.Routers.Router = Backbone.Router.extend({
     this._swapView(surveyShowView);
   },
 
-  surveys: function () {
+  surveysIndex: function () {
     var current_user = new FastFeedback.Models.CurrentUser();
     current_user.fetch();
     var surveysIndexView = new FastFeedback.Views.SurveysIndex({ model: current_user });
