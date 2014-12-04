@@ -10,6 +10,10 @@
 </head>
 <body>
 
+<div class="font_preload" style="opacity: 0">
+  <span style="font-family: 'Glyphicons Halflings', Arial, sans-serif;"></span>
+</div>
+
 <% if flash[:errors] %>
   <% flash[:errors].each do |error| %>
       <div class="alert alert-danger" role="alert"><%= error %></div>
