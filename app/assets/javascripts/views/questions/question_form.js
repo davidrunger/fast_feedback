@@ -1,25 +1,28 @@
 FastFeedback.Views.QuestionForm = Backbone.CompositeView.extend({
-  addAnswer: function (event) {
+  addAnswer: function (answer) {
+    var answerFormView = new FastFeedback.Views.AnswerForm({ model: answer });
+    this.addSubview('.answers', answerFormView);
+  },
+
+  addBlankAnswer: function (event) {
     event && event.preventDefault();
     var answer = new FastFeedback.Models.Answer({ ord: ++this.model.num_answers });
     this.collection.add(answer);
     var answerFormView = new FastFeedback.Views.AnswerForm({ model: answer });
     this.addSubview('.answers', answerFormView);
-    if (this.model.num_answers >= 4) {
-      this.$el.find('.add-answer').addClass('disabled');
-    }
   },
 
   className: 'question-form',
 
   events: {
     'click .publish-question': 'publish',
-    'click .add-answer': 'addAnswer'
+    'click .add-answer': 'addBlankAnswer'
   },
 
   initialize: function (options) {
     this.collection = this.model.answers();
     this.isInSurvey = options.isInSurvey;
+    this.listenTo(this.model, 'sync', this.render);
   },
 
   publish: function (event) {
@@ -35,8 +38,17 @@ FastFeedback.Views.QuestionForm = Backbone.CompositeView.extend({
   render: function () {
     var content = this.template({ question: this.model, isInSurvey: this.isInSurvey });
     this.$el.html(content);
-    while (this.model.num_answers < 2) {
-      this.addAnswer();
+    if (this.model.id) {
+      this.model.answers().each(function (answer) {
+        this.addAnswer(answer);
+      }.bind(this));
+    } else {
+      while (this.model.num_answers < 2) {
+        this.addBlankAnswer();
+      }      
+    }
+    if (this.model.num_answers >= 4) {
+      this.$el.find('.add-answer').addClass('disabled');
     }
     this.attachSubviews();
     return this;
