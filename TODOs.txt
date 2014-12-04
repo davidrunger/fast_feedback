@@ -1,4 +1,5 @@
 SCREEN-RECORD MY PRESENTATION!
+download pusher.js into app.js
 don't allow creation of responses for questions that don't yet exist in the database
 reply to text message to confirm vote counting
 fix now-broken styling of the sign-up page (make modal, too?)
