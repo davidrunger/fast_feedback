@@ -1,0 +1,15 @@
+<div class="form-group">
+  <label for="survey-title" id="survey-title-label">Survey Title</label>
+  <input type="text"
+         id="survey-title"
+         class="form-control"
+         name="survey[title]"
+         maxlength="100"
+         placeholder="Describe the set of questions that you will be asking"
+         tabindex="1"
+         text="<%= survey.escape('title') %>"
+  >
+  <button class="save-survey-title btn btn-default">
+    Save Survey Title
+  </button>
+</div>
