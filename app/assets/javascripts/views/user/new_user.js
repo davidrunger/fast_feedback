@@ -1,10 +1,12 @@
 FastFeedback.Views.NewUser = Backbone.CompositeView.extend({
+  className: 'signup',
+
   events: {
     'click #submit': 'signUp'
   },
 
   render: function (question, response, options) {
-    var content = this.template({ user: this.model, action: 'signup' });
+    var content = this.template({ user: this.model });
     this.$el.html(content);
     return this;
   },
