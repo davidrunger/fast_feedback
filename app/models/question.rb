@@ -14,7 +14,7 @@
 
 class Question < ActiveRecord::Base
   validates :title, presence: true
-  has_many :answers, -> { order(ord: :asc) }, inverse_of: :question
+  has_many :answers, -> { order(ord: :asc) }, inverse_of: :question, dependent: :destroy
   accepts_nested_attributes_for :answers
   belongs_to :user
   belongs_to :survey
