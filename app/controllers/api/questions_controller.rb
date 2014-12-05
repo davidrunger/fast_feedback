@@ -25,6 +25,12 @@ class Api::QuestionsController < ApplicationController
     render 'api/questions/question_show'
   end
 
+  def destroy
+    @question = Question.find(params[:id])
+    @question.destroy!
+    render json: {'destroy_result' => 'unknown'}
+  end
+
   private
   def question_params
     params.require(:question).permit(

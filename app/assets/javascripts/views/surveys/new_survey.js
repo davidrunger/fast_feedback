@@ -33,7 +33,6 @@ FastFeedback.Views.NewSurvey = Backbone.CompositeView.extend({
 
   publishSurvey: function (event) {
     event.preventDefault();
-    debugger
     this._questionsSaved = 0;
     var numQuestions = this._subviews['.questions'].length;
     var successHandler = function () {

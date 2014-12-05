@@ -1,4 +1,5 @@
 SCREEN-RECORD MY PRESENTATION!
+remove() survey for view when publishing it
 refactor ord of questions into sismply id in survey edit form
 when editing survey, title should be "edit"
 load jquery separately via CDN?
@@ -72,3 +73,9 @@ optimize database queries
   1. Chemistry Quiz
   2. Stadium MVP Poll
   3. Comedy club
+
+  Who do you think was smartest on this list?
+Einstein
+Shakespeare
+Mozart
+Jesus

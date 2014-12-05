@@ -6,6 +6,17 @@ FastFeedback.Views.QuestionsIndex = Backbone.CompositeView.extend({
 
   className: 'my-questions',
 
+  destroy: function (event) {
+    event.preventDefault();
+    var id = $(event.currentTarget).data('id');
+    this.model.questions().get(id).destroy();
+    this.render();
+  },
+
+  events: {
+    'click .delete': 'destroy'
+  },
+
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
   },

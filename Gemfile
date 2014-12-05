@@ -10,6 +10,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'bcrypt', '~> 3.1.7'
 gem 'pry-byebug', group: [:development, :test]
+gem 'byebug', group: [:development, :test]
 gem 'rails_12factor', group: :production
 gem 'newrelic_rpm'
 gem 'bootstrap-sass', '~> 3.3.1'
@@ -20,8 +21,7 @@ gem "figaro"
 gem 'pusher', '~> 0.14.2'
 gem 'ejs'
 gem 'rack-zippy'
-gem 'byebug'
-gem 'pry-byebug'
+gem 'seed_dump'
 
 group :development do
   gem 'better_errors'

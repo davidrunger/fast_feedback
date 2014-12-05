@@ -27,6 +27,12 @@ class Api::SurveysController < ApplicationController
     render :survey_show
   end
 
+  def destroy
+    @survey = Survey.find(params[:id])
+    @survey.destroy!
+    render json: {'destroy_result' => 'unknown'}
+  end
+
   private
   def survey_params
     params.require(:survey).permit(
