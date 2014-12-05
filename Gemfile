@@ -20,6 +20,8 @@ gem "figaro"
 gem 'pusher', '~> 0.14.2'
 gem 'ejs'
 gem 'rack-zippy'
+gem 'byebug'
+gem 'pry-byebug'
 
 group :development do
   gem 'better_errors'

@@ -10,7 +10,7 @@ class Api::QuestionsController < ApplicationController
       @question.user_id = current_user.id
     end
     @question.save!
-    render json: @question
+    render :question_show
   end
 
   def show

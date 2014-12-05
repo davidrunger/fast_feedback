@@ -61,3 +61,14 @@ serve assets via CDN's instead of my own server
 serve js/css assets on a per-page basis
 extract only the parts of bootstrap that i need
 optimize database queries
+
+===PRESENTATION NOTES===
+1. Quick Question Creation (Interesting question from OkCupid)
+2. Log in with demo account
+3. Browse through Presentation Survey
+  1. What is your favorite technology?
+  2. Are you voting through text or web?
+4. Edit Interesting Usage Examples Survey
+  1. Chemistry Quiz
+  2. Stadium MVP Poll
+  3. Comedy club

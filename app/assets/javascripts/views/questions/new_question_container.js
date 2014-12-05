@@ -16,7 +16,7 @@ FastFeedback.Views.NewQuestionContainer = Backbone.CompositeView.extend({
   },
 
   events: {
-    'click .save-question-button': 'save',
+    'click .save-question': 'save',
     'click .edit-question-button': 'edit'
   },
 
@@ -40,7 +40,7 @@ FastFeedback.Views.NewQuestionContainer = Backbone.CompositeView.extend({
 
   save: function (event) {
     event.preventDefault();
-    var questionAttrs = this.$el.find('form').serializeJSON()['question'];
+    var questionAttrs = this.$el.find('form').serializeJSON();
     this.model.save(questionAttrs, {
       success: function () {
         this._questionState = 'saved';
