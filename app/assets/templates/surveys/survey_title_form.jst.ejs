@@ -1,4 +1,11 @@
-<div class="form-group">
+<label>
+  Survey Title
+  <input type="text" id="survey-title" name="survey[title]"
+    value="<%= survey.escape('title') == '' ? 'No Typing :)' : survey.escape('title') %>">
+</label>
+<button id="save-survey-title">Save Survey Title</button>
+
+<!-- <div class="form-group">
   <label for="survey-title" id="survey-title-label">Survey Title</label>
   <input type="text"
          id="survey-title"
@@ -12,4 +19,4 @@
   <button class="save-survey-title btn btn-default">
     Save Survey Title
   </button>
-</div>
+</div> -->

@@ -92,10 +92,7 @@ FastFeedback.Views.QuestionShow = Backbone.CompositeView.extend({
   },
 
   subscribeToChannel: function () {
-    if (Pusher.instances[0].channels.all().length > 1) {
-      console.log('pusher error');
-    }
-    else if (Pusher.instances[0].channels.all().length === 1) {
+    if (Pusher.instances[0].channels.all().length === 1) {
       var oldChannelName = Pusher.instances[0].channels.all()[0].name;
       Pusher.instances[0].unsubscribe(oldChannelName);
       Pusher.instances[0].channels.remove(oldChannelName);

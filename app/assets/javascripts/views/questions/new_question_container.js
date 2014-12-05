@@ -1,6 +1,6 @@
 FastFeedback.Views.NewQuestionContainer = Backbone.CompositeView.extend({
   activeView: function () {
-    if (this.questionState == 'editing') {
+    if (this._questionState == 'editing') {
       return this.editView;
     } else {
       return this.savedView;
@@ -11,17 +11,18 @@ FastFeedback.Views.NewQuestionContainer = Backbone.CompositeView.extend({
 
   edit: function (event) {
     event.preventDefault();
-    console.log('you are now editing a question');
-    console.log(this.model);
+    this._questionState = 'editing';
+    this.render();
   },
 
   events: {
-    'click .save-question': 'save',
-    'click .edit-question': 'edit'
+    'click .save-question-button': 'save',
+    'click .edit-question-button': 'edit'
   },
 
   initialize: function (options) {
-    this.questionState = options.questionState || 'editing';
+    this.listenTo(this.model, 'sync', this.render);
+    this._questionState = options.questionState || 'editing';
     this.editView = new FastFeedback.Views.EditQuestion({ model: this.model });
     this.savedView = new FastFeedback.Views.SavedQuestion({ model: this.model });
   },
@@ -39,7 +40,11 @@ FastFeedback.Views.NewQuestionContainer = Backbone.CompositeView.extend({
 
   save: function (event) {
     event.preventDefault();
-    console.log('you are now viewing a saved question');
-    console.log(this.model);
+    var questionAttrs = this.$el.find('form').serializeJSON()['question'];
+    this.model.save(questionAttrs, {
+      success: function () {
+        this._questionState = 'saved';
+      }.bind(this)
+    });
   }
 });

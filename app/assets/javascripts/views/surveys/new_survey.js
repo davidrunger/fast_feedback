@@ -1,8 +1,15 @@
 FastFeedback.Views.NewSurvey = Backbone.CompositeView.extend({
   className: 'new-survey',
 
+  editSurveyTitle: function (event) {
+    event.preventDefault();
+    this.$el.find('.survey-title-container').html(JST['surveys/survey_title_form']({ survey: this.model }));
+    this.delegateEvents();
+  },
+
   events: {
-    'click #save-survey-title': 'saveTitle'
+    'click #save-survey-title': 'saveSurveyTitle',
+    'click .edit-survey-title': 'editSurveyTitle'
   },
 
   initialize: function () {
@@ -10,15 +17,10 @@ FastFeedback.Views.NewSurvey = Backbone.CompositeView.extend({
     this.listenToOnce(this.model, 'sync', this.renderFirstQuestionContainer);
   },
 
-  saveTitle: function (event) {
-    event.preventDefault();
-    var title = $(event.delegateTarget).find('#survey-title').val();
-    this.model.save({ title: title });
-  },
-
   render: function () {
     var content = this.template();
     this.$el.html(content);
+    this.$el.find('.survey-title-container').html(JST['surveys/survey_title_form']({ survey: this.model }));
     return this;
   },
 
@@ -30,6 +32,17 @@ FastFeedback.Views.NewSurvey = Backbone.CompositeView.extend({
     var newQuestionContainerView = new FastFeedback.Views.NewQuestionContainer({ model: question });
     this.addSubview('.questions', newQuestionContainerView);
     this.attachSubview('.questions', newQuestionContainerView.render())
+  },
+
+  saveSurveyTitle: function (event) {
+    event.preventDefault();
+    var title = $(event.delegateTarget).find('#survey-title').val();
+    this.model.save({ title: title }, {
+      success: function () {
+        this.$el.find('.survey-title-container').html(JST['surveys/survey_title_show']({ survey: this.model }));
+        this.delegateEvents();
+      }.bind(this)
+    });
   },
 
   template: JST['surveys/new_survey']

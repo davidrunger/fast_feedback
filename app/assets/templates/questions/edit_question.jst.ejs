@@ -1,1 +1,8 @@
-<button class="save-question">Save</button>
+<form>
+  <input type="text" name="question[title]"
+    value="<%= question.escape('title') == '' ? "David's Question" : question.escape('title') %>">
+  <input type="hidden" name="question[ord]" value="<%= question.escape('ord') %>">
+  <input type="hidden" name="question[survey_id]" value="<%= question.escape('surveyId') %>">
+</form>
+
+<button class="save-question-button">Save</button>
