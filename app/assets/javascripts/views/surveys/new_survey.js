@@ -20,7 +20,7 @@ FastFeedback.Views.NewSurvey = Backbone.CompositeView.extend({
   },
 
   events: {
-    'click #save-survey-title': 'saveSurveyTitle',
+    'click .save-survey-title': 'saveSurveyTitle',
     'click .edit-survey-title': 'editSurveyTitle',
     'click .add-question-container': 'addNewQuestionContainer',
     'click .publish-survey': 'publishSurvey'

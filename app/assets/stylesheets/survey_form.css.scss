@@ -7,17 +7,6 @@
   .question-form {
     margin-left: 0px;
   }
-  .question-title {
-    text-align: left;
-    font-size: 18px;
-    padding: 20px 8px 2px;
-    .edit-question {
-      margin-left: 10px;
-    }
-  }
-  .modal-dialog {
-    width: 634px;
-  }
 }
 
 .clearfix {
@@ -26,11 +15,42 @@
   clear: both;
 }
 
-#survey-title-label {
-  font-size: 21px;
-}
-
 .publish-survey {
   margin: 40px;
   display: block;
+}
+
+.new-survey {
+  width: 600px;
+  margin: 0 30px;
+  h1 {
+    margin-left: 0px;
+  }
+  .new-question-container {
+    margin: 35px 0;
+  }
+}
+
+.question-title-field label {
+  font-size: 22px;
+}
+
+.save-survey-title, .edit-survey-title {
+  margin-top: 10px;
+}
+
+.save-survey-title.btn-primary {
+  margin-top: 20px;
+}
+
+#survey-title-label {
+  font-size: 18px;
+}
+
+div#survey-title {
+  font-size: 24px;
+}
+
+.survey-title-container .form-group {
+  height: 100px;
 }

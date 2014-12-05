@@ -1,6 +1,9 @@
-<div class="survey-title">
-  <strong>Survey: </strong><%= survey.escape('title') %>
-  <button class="edit-survey-title">
-    Edit Survey Title
+<div class="form-group">
+  <label for="survey-title" id="survey-title-label">Survey Title:</label>
+  <div id="survey-title">
+    <%= survey.escape('title') %>
+  </div>
+  <button class="edit-survey-title btn btn-default">
+    Edit Title
   </button>
 </div>
