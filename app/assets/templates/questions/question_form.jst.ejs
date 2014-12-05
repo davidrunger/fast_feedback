@@ -10,18 +10,17 @@
             maxlength="120"
             rows="4"
             placeholder="What would you like to ask your audience?"
-            tabindex="2"><%= question.escape('title') %></textarea>
+  ><%= question.escape('title') %></textarea>
 </div>
 
 <input type="hidden" name="question[ord]" value="<%= question.escape('ord') %>">
 
 <div class="answers"></div>
 
-<button class="add-answer btn btn-default btn-sm" tabindex="50">Add another answer</button>
-<button class="btn btn-default btn-sm" tabindex="51">Question options</button>
+<button class="add-answer btn btn-default btn-sm">Add another answer</button>
 <% if (isInSurvey) { %>
-  <button class="save-question btn btn-primary" tabindex="52">Save Question</button>
+  <button class="save-question btn btn-primary">Save Question</button>
   <div class="next-question"></div>
 <% } else { %>
-  <button class="publish-question btn btn-primary" tabindex="52">Publish My Question!</button>
+  <button class="publish-question btn btn-primary">Publish My Question!</button>
 <% } %>

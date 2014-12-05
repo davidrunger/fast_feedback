@@ -54,3 +54,14 @@ div#survey-title {
 .survey-title-container .form-group {
   height: 100px;
 }
+
+.edit-question .answer-field {
+  label {
+    font-size: 16px;
+    margin-top: 6px;
+  }
+  input {
+    width: 115%;
+    margin-left: -48px;
+  }
+}
