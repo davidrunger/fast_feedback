@@ -1,4 +1,6 @@
 SCREEN-RECORD MY PRESENTATION!
+make index pages say 'loading' instead of flashing 'you have none of these'
+prevent not-integer x-axis labels
 remove() survey for view when publishing it
 refactor ord of questions into sismply id in survey edit form
 when editing survey, title should be "edit"
