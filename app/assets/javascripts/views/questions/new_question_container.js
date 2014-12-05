@@ -38,13 +38,12 @@ FastFeedback.Views.NewQuestionContainer = Backbone.CompositeView.extend({
     return this;
   },
 
-  save: function (event) {
-    event.preventDefault();
+  save: function (callback) {
     var questionAttrs = this.$el.find('form').serializeJSON();
     this.model.save(questionAttrs, {
       success: function () {
-        this._questionState = 'saved';
-      }.bind(this)
+        callback();
+      }
     });
   }
 });

@@ -1,7 +1,11 @@
 FastFeedback.Views.EditQuestion = Backbone.CompositeView.extend({
   addNewAnswer: function (event) {
     event.preventDefault();
-    console.log('write addNewAnswer');
+    var answer = new FastFeedback.Models.Answer({ ord: this.model.numAnswers() + 1 });
+    this.model.answers().add(answer);
+    var answerFormView = new FastFeedback.Views.AnswerForm({ model: answer });
+    this.addSubview('.answers', answerFormView);
+    this.attachSubview('.answers', answerFormView.render());
   },
 
   className: 'edit-question',
@@ -24,7 +28,7 @@ FastFeedback.Views.EditQuestion = Backbone.CompositeView.extend({
   },
 
   render: function () {
-    var content = this.template({ question: this.model, isInSurvey: true });
+    var content = this.template({ question: this.model });
     this.$el.html(content);
     if (this.model.numAnswers() >= 4) {
       this.$el.find('.add-answer').addClass('disabled');

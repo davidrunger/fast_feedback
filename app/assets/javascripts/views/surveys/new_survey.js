@@ -1,4 +1,16 @@
 FastFeedback.Views.NewSurvey = Backbone.CompositeView.extend({
+  addNewQuestionContainer: function (event) {
+    event && event.preventDefault();
+    var question = new FastFeedback.Models.Question({
+      ord: ++this.numQuestions,
+      surveyId: this.model.id
+    });
+    var newQuestionContainerView = new FastFeedback.Views.NewQuestionContainer({ model: question });
+    this.addSubview('.questions', newQuestionContainerView);
+    this.attachSubview('.questions', newQuestionContainerView.render());
+    this.delegateEvents();
+  },
+
   className: 'new-survey',
 
   editSurveyTitle: function (event) {
@@ -9,12 +21,30 @@ FastFeedback.Views.NewSurvey = Backbone.CompositeView.extend({
 
   events: {
     'click #save-survey-title': 'saveSurveyTitle',
-    'click .edit-survey-title': 'editSurveyTitle'
+    'click .edit-survey-title': 'editSurveyTitle',
+    'click .add-question-container': 'addNewQuestionContainer',
+    'click .publish-survey': 'publishSurvey'
   },
 
   initialize: function () {
     this.numQuestions = 0;
     this.listenToOnce(this.model, 'sync', this.renderFirstQuestionContainer);
+  },
+
+  publishSurvey: function (event) {
+    event.preventDefault();
+    debugger
+    this._questionsSaved = 0;
+    var numQuestions = this._subviews['.questions'].length;
+    var successHandler = function () {
+      this._questionsSaved++;
+      if (this._questionsSaved === numQuestions) {
+        Backbone.history.navigate('#/surveys/' + this.model.id);
+      }
+    }.bind(this);
+    this._subviews['.questions'].forEach(function (questionContainer) {
+      questionContainer.save(successHandler);
+    });
   },
 
   render: function () {
@@ -25,13 +55,9 @@ FastFeedback.Views.NewSurvey = Backbone.CompositeView.extend({
   },
 
   renderFirstQuestionContainer: function () {
-    var question = new FastFeedback.Models.Question({
-      ord: ++this.numQuestions,
-      surveyId: this.model.id
-    });
-    var newQuestionContainerView = new FastFeedback.Views.NewQuestionContainer({ model: question });
-    this.addSubview('.questions', newQuestionContainerView);
-    this.attachSubview('.questions', newQuestionContainerView.render())
+    this.addNewQuestionContainer();
+    this.$el.append(JST['surveys/survey_controls']());
+    this.delegateEvents();
   },
 
   saveSurveyTitle: function (event) {
