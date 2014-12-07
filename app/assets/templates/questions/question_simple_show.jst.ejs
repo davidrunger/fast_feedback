@@ -1,8 +1,5 @@
 <div class="question-title">
   <strong>Question <%= question.escape('ord') %>: </strong><%= question.escape('title') %>
-  <button class="edit-question btn btn-default">
-    Edit Question
-  </button>
 </div>
 
 <ul class="answers">
@@ -10,3 +7,7 @@
     <li><%= answer.escape('text') %></li>
   <% }) %>
 </ul>
+
+<button class="edit-question btn btn-default btn-sm">
+  Edit Question
+</button>

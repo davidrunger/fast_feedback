@@ -7,6 +7,10 @@
   .question-form {
     margin-left: 0px;
   }
+  .question-title {
+    text-align: left;
+    font-size: 18px;
+  }
 }
 
 .clearfix {
@@ -64,4 +68,8 @@ div#survey-title {
     width: 115%;
     margin-left: -48px;
   }
+}
+
+button.edit-question {
+  margin-bottom: 15px;
 }
