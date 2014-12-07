@@ -1,5 +1,5 @@
 <% if (!isInSurvey && !isInModal) { %>
-  <h1>Create a Quick Question</h1>
+  <h1><%= question.id ? 'Edit' : 'Create a Quick' %> Question</h1>
 <% } %>
 
 <div class="form-group question-title-field">
