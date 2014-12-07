@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20141205191923) do
     t.string   "pic_url"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "ord",         null: false
+    t.integer  "ord"
   end
 
   add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree

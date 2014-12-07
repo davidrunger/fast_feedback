@@ -10,6 +10,6 @@
 #
 
 class Response < ActiveRecord::Base
-  validates :answer_id, :answerer_id, presence: true
+  validates :answer_id, presence: true
   belongs_to :answer
 end
