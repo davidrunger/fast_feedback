@@ -4,7 +4,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>FastFeedback</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
   <%= favicon_link_tag 'favicon.ico' %>
   <%= csrf_meta_tags %>
 </head>
@@ -14,15 +13,28 @@
   <span style="font-family: 'Glyphicons Halflings', Arial, sans-serif;"></span>
 </div>
 
-<% if flash[:errors] %>
-  <% flash[:errors].each do |error| %>
-      <div class="alert alert-danger" role="alert"><%= error %></div>
-  <% end %>
-<% end %>
-
 <div id='main'>
   <%= yield %>
 </div>
+
+<script>
+  window.FastFeedback = {
+    Models: {},
+    Collections: {},
+    Views: {},
+    Routers: {},
+    initialize: function () {
+      if (Pusher && Pusher.instances.length === 0) {
+        FastFeedback.pusher = new Pusher('64152daaea1aca17f899');
+      }
+      FastFeedback.questions = new FastFeedback.Collections.Questions();
+      new FastFeedback.Routers.Router({ $rootEl: $('#main') });
+      Backbone.history.start();
+    }
+  }
+</script>
+<%= javascript_include_tag 'application' %>
+<%= yield :scripts %>
 
 </body>
 </html>
