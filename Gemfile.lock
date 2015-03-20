@@ -122,6 +122,8 @@ GEM
     pry-byebug (3.1.0)
       byebug (~> 4.0)
       pry (~> 0.10)
+    puma (2.11.1)
+      rack (>= 1.1, < 2.0)
     pusher (0.14.4)
       httpclient (~> 2.5)
       multi_json (~> 1.0)
@@ -212,6 +214,7 @@ DEPENDENCIES
   newrelic_rpm
   pg
   pry-byebug
+  puma
   pusher (~> 0.14.2)
   rails (= 4.2.0)
   rails_12factor
