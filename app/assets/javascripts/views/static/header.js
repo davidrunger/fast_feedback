@@ -36,6 +36,7 @@ FastFeedback.Views.Header = Backbone.CompositeView.extend({
       data: userAttrs,
       success: function (data, status) {
         $('.modal-backdrop').remove();
+        $('body').css('padding-right', '');
         Backbone.history.navigate('#/account');
       },
       error: function (response, status) {
