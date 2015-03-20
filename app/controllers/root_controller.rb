@@ -1,5 +1,5 @@
 class RootController < ApplicationController
   def root
-    render :root, layout: 'application'
+    render :text => "", layout: 'application'
   end
 end
