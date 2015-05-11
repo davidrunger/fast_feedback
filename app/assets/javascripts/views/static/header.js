@@ -1,14 +1,37 @@
 FastFeedback.Views.Header = Backbone.CompositeView.extend({
-  demoAccount: function (event) {
-    event.preventDefault();
-    $('#email').val('demo@user.net');
-    $('#password').val('password');
-  },
-
   events: {
     'click .sign-out': 'signOut',
     'click .modal-sign-in': 'signIn',
     'click .demo-account': 'demoAccount'
+  },
+
+  demoAccount: function (event) {
+    event.preventDefault();
+    var $email = this.$('#email');
+    var $password = $('#password');
+    this.ghostwrite($email, 'demo@user.net');
+    var view = this;
+    $email.on('ghostwriteFinish', function () {
+      view.ghostwrite($password, 'password');
+    });
+    $password.on('ghostwriteFinish', function () {
+      view.$('.modal-sign-in').click();
+    });
+  },
+
+  ghostwrite: function ($input, text) {
+    var interval = 110;
+    function timeoutLetters(i) {
+      setTimeout(function () {
+        $input.val(text.slice(0, i));
+        if (i === text.length) {
+          $input.trigger('ghostwriteFinish');
+        }
+      }, interval * i);
+    }
+    for (var i = 1, len = text.length; i <= len; i++) {
+      timeoutLetters(i);
+    }
   },
 
   initialize: function (options) {
