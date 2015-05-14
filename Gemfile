@@ -15,7 +15,7 @@ gem 'sass-rails', '>= 3.2'
 gem 'autoprefixer-rails'
 gem 'backbone-on-rails'
 gem 'figaro'
-gem 'pusher', '~> 0.14.2'
+gem 'pusher', '~> 0.14.5'
 gem 'ejs'
 gem 'seed_dump'
 
