@@ -1,4 +1,4 @@
-SCREEN-RECORD MY PRESENTATION!
+color-code the (code) things to make it clearer how to vote via text
 make index pages say 'loading' instead of flashing 'you have none of these'
 prevent not-integer x-axis labels
 remove() survey for view when publishing it
