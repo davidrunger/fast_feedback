@@ -1,3 +1,5 @@
+make guest login clearer, preferably immedaitely available on landing page
+spruce up the surveys/questions page (landing page after logging in)
 color-code the (code) things to make it clearer how to vote via text
 make index pages say 'loading' instead of flashing 'you have none of these'
 prevent not-integer x-axis labels
