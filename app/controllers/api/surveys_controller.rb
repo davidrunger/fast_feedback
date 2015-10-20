@@ -23,8 +23,8 @@ class Api::SurveysController < ApplicationController
   end
 
   def show
-    @survey = Survey.find(params[:id])
-    render :survey_show
+    @survey = Survey.includes(questions: {answers: :responses}).find(params[:id])
+    render json: @survey, include: { questions: [:answers] }
   end
 
   def destroy

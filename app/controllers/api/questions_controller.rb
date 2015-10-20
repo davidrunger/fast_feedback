@@ -15,7 +15,7 @@ class Api::QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
-    render :question_show
+    render json: @question
   end
 
   def update

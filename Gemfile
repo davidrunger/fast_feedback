@@ -18,6 +18,7 @@ gem 'figaro'
 gem 'pusher', '~> 0.14.5'
 gem 'ejs'
 gem 'seed_dump'
+gem 'active_model_serializers', git: 'https://github.com/rails-api/active_model_serializers.git'
 
 group :development do
   gem 'better_errors'

@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/rails-api/active_model_serializers.git
+  revision: 737784c9b702ea47932e8e6a1812d445f115bf7d
+  specs:
+    active_model_serializers (0.10.0.rc3)
+      actionpack (>= 4.0)
+      activemodel (>= 4.0)
+      railties (>= 4.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -198,6 +207,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_model_serializers!
   annotate
   autoprefixer-rails
   backbone-on-rails
@@ -222,3 +232,6 @@ DEPENDENCIES
   seed_dump
   spring
   uglifier (>= 1.3.0)
+
+BUNDLED WITH
+   1.10.6
