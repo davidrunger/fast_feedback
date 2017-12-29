@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.4.2'
 
-gem 'active_model_serializers', git: 'https://github.com/rails-api/active_model_serializers.git'
+gem 'active_model_serializers', '~> 0.10.0'
 gem 'autoprefixer-rails'
 gem 'backbone-on-rails'
 gem 'bcrypt', '~> 3.1'
