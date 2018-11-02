@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.4.2'
+ruby '2.5.1'
 
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'autoprefixer-rails'
