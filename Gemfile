@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.5.1'
+ruby '2.6.0'
 
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'autoprefixer-rails'
@@ -28,7 +28,6 @@ group :development do
 end
 
 group :development, :test do
-  gem 'byebug'
   gem 'pry-byebug'
 end
 
